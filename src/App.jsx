@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
-import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
-import { Github, Linkedin, Mail, ArrowRight, Download, ExternalLink, Sparkles } from "lucide-react";
+import { motion } from "framer-motion";
+import { Mail, ArrowRight, Download, ExternalLink, Sparkles } from "lucide-react";
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
 // ---- Quick-start instructions ----
 // 1) Drop this component into a Vite + React project as src/App.jsx and run `npm run dev`.
@@ -11,11 +12,7 @@ import { Github, Linkedin, Mail, ArrowRight, Download, ExternalLink, Sparkles } 
 export default function App() {
   const [dark, setDark] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);
-
-  // Spotlight effect
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-  const spotlight = useMotionTemplate`radial-gradient(600px 600px at ${mouseX}px ${mouseY}px, rgba(120,119,198,0.25), transparent 60%)`;
+  const AVATAR = "https://res.cloudinary.com/dqqdfeuo1/image/upload/v1755504750/P_20240508_152743_kjd1p0.jpg"
 
   function handleMouseMove(e) {
     const { clientX, clientY } = e;
@@ -41,18 +38,13 @@ export default function App() {
   return (
     <div className={dark ? "dark" : ""}>
       <div onMouseMove={handleMouseMove} className="relative min-h-screen bg-white text-slate-800 dark:bg-[#0b0f17] dark:text-slate-100 selection:bg-indigo-200 selection:text-indigo-950">
-        {/* Spotlight */}
-        <motion.div
-          style={{ backgroundImage: spotlight }}
-          className="pointer-events-none fixed inset-0 z-0"
-          aria-hidden
-        />
+
 
         {/* Decorative gradient blob */}
         <div className="pointer-events-none absolute -top-24 right-[-10%] h-[40rem] w-[40rem] rounded-full bg-gradient-to-tr from-indigo-500/20 via-fuchsia-500/10 to-cyan-500/20 blur-3xl" />
 
         {/* Nav */}
-        <header className="sticky top-0 z-10 backdrop-blur supports-[backdrop-filter]:bg-white/40 dark:supports-[backdrop-filter]:bg-black/20 border-b border-white/10">
+        <header className="sticky top-0 z-9999 backdrop-blur supports-[backdrop-filter]:bg-white/40 dark:supports-[backdrop-filter]:bg-black/20 border-b border-white/10">
           <div className="mx-auto max-w-6xl px-4">
             <div className="flex h-16 items-center justify-between">
               <a href="#home" className="group inline-flex items-center gap-2 font-semibold">
@@ -120,10 +112,10 @@ export default function App() {
                     <Mail className="h-4 w-4" /> Contact
                   </a>
                   <a href="https://github.com/jonorl" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-2xl border border-white/20 px-4 py-2 hover:bg-white/10">
-                    <Github className="h-4 w-4" /> GitHub
+                    <FaGithub className="h-4 w-4" /> GitHub
                   </a>
-                  <a href="https://www.linkedin.com/in/" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-2xl border border-white/20 px-4 py-2 hover:bg-white/10">
-                    <Linkedin className="h-4 w-4" /> LinkedIn
+                  <a href="https://www.linkedin.com/in/jonathan-orlowski-58910b21/" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-2xl border border-white/20 px-4 py-2 hover:bg-white/10">
+                    <FaLinkedin className="h-4 w-4" /> LinkedIn
                   </a>
                 </div>
               </div>
@@ -135,13 +127,15 @@ export default function App() {
                 transition={{ duration: 0.6, delay: 0.1 }}
                 className="relative"
               >
-                <div className="group relative mx-auto max-w-sm overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 shadow-2xl backdrop-blur">
-                  <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/10 via-transparent to-fuchsia-500/10" />
+                <div className="group relative mx-auto max-w-sm overflow-hidden border border-white/10 bg-white/5 p-6 shadow-2xl backdrop-blur">
+                  <div className=" inset-0 bg-gradient-to-br from-indigo-500/10 via-transparent to-fuchsia-500/10" />
                   <div className="relative">
-                    <div className="h-28 w-28 rounded-full bg-gradient-to-tr from-indigo-500 to-fuchsia-500 p-1">
-                      <div className="h-full w-full rounded-full bg-white/90 dark:bg-black/60 backdrop-blur flex items-center justify-center text-xs uppercase tracking-wide">
-                        Your<br/>Avatar
-                      </div>
+                    <div className="h-auto w-28 rounded-full bg-gradient-to-tr from-indigo-500 to-fuchsia-500 p-1">
+
+                      <img className="rounded-full bg-white/90 dark:bg-black/60 backdrop-blur flex items-center justify-center text-xs uppercase tracking-wide" src={AVATAR}
+                        alt="avatar"
+                      />
+
                     </div>
                     <h2 className="mt-4 text-xl font-semibold">React • Node • PostgreSQL</h2>
                     <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">
@@ -150,7 +144,7 @@ export default function App() {
                     <ul className="mt-4 grid grid-cols-2 gap-2 text-sm">
                       {[
                         "React / Vite",
-                        "TypeScript",
+                        "Javascript",
                         "Tailwind CSS",
                         "Express.js",
                         "PostgreSQL",
