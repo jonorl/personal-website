@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { Github, Linkedin, Mail, ExternalLink, ChevronDown, Moon, Sun } from 'lucide-react';
+import  { useState, useEffect } from 'react';
+import {  Mail, ExternalLink, ChevronDown, Moon, Sun } from 'lucide-react';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
 const PersonalWebsite = () => {
   const [darkMode, setDarkMode] = useState(true);
@@ -89,7 +90,7 @@ const PersonalWebsite = () => {
   return (
     <div className={`min-h-screen transition-all duration-500 ${darkMode ? 'bg-gray-900 text-white' : 'bg-gray-50 text-gray-900'}`}>
       {/* Navigation */}
-      <nav className={`fixed top-0 w-full z-50 backdrop-blur-md transition-all duration-300 ${darkMode ? 'bg-gray-900/80' : 'bg-white/80'} border-b ${darkMode ? 'border-gray-800' : 'border-gray-200'}`}>
+      <nav className={`fixed top-0 max-w-screen z-50 backdrop-blur-md transition-all duration-300 ${darkMode ? 'bg-gray-900/80' : 'bg-white/80'} border-b ${darkMode ? 'border-gray-800' : 'border-gray-200'}`}>
         <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
           <div className="text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
             Your Name
@@ -174,10 +175,10 @@ const PersonalWebsite = () => {
               </p>
               <div className="flex gap-4">
                 <a href="#" className="text-blue-400 hover:text-blue-300 transition-colors">
-                  <Github size={24} />
+                  <FaGithub size={24} />
                 </a>
                 <a href="#" className="text-blue-400 hover:text-blue-300 transition-colors">
-                  <Linkedin size={24} />
+                  <FaLinkedin size={24} />
                 </a>
                 <a href="#" className="text-blue-400 hover:text-blue-300 transition-colors">
                   <Mail size={24} />
@@ -253,7 +254,7 @@ const PersonalWebsite = () => {
                       href={project.github}
                       className="flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors"
                     >
-                      <Github size={18} />
+                      <FaGithub size={18} />
                       Code
                     </a>
                     <a 
@@ -296,7 +297,7 @@ const PersonalWebsite = () => {
               href="#"
               className={`group p-8 rounded-xl transition-all duration-300 hover:scale-105 ${darkMode ? 'bg-gray-700 hover:bg-gray-600' : 'bg-gray-100 hover:bg-gray-200'}`}
             >
-              <Github size={32} className="mx-auto mb-4 text-blue-400 group-hover:scale-110 transition-transform" />
+              <FaGithub size={32} className="mx-auto mb-4 text-blue-400 group-hover:scale-110 transition-transform" />
               <h3 className="text-lg font-semibold mb-2">GitHub</h3>
               <p className={`${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>@yourusername</p>
             </a>
@@ -305,7 +306,7 @@ const PersonalWebsite = () => {
               href="#"
               className={`group p-8 rounded-xl transition-all duration-300 hover:scale-105 ${darkMode ? 'bg-gray-700 hover:bg-gray-600' : 'bg-gray-100 hover:bg-gray-200'}`}
             >
-              <Linkedin size={32} className="mx-auto mb-4 text-blue-400 group-hover:scale-110 transition-transform" />
+              <FaLinkedin size={32} className="mx-auto mb-4 text-blue-400 group-hover:scale-110 transition-transform" />
               <h3 className="text-lg font-semibold mb-2">LinkedIn</h3>
               <p className={`${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>/in/yourprofile</p>
             </a>
