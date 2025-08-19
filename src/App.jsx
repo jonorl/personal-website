@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, ArrowRight, Download, ExternalLink, Sparkles } from "lucide-react";
+import { Mail, ArrowRight, Download, ExternalLink, MonitorCheck } from "lucide-react";
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
 export default function App() {
@@ -67,7 +67,7 @@ export default function App() {
           <div className="mx-auto max-w-6xl px-4">
             <div className="flex h-16 items-center justify-between">
               <a href="#home" className="group inline-flex items-center gap-2 font-semibold">
-                <Sparkles className="h-5 w-5 transition-transform group-hover:rotate-12" />
+                <MonitorCheck className="h-5 w-5 transition-transform group-hover:rotate-12" />
                 <span>Jonathan Orlowski</span>
               </a>
               <nav className="hidden md:flex items-center gap-6 text-sm">
