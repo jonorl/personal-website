@@ -56,11 +56,11 @@ export default function App() {
 
   return (
     <div className={dark ? "dark" : ""}>
-      <div className="relative min-h-screen bg-white text-slate-800 dark:bg-[#0b0f17] dark:text-slate-100 selection:bg-indigo-200 selection:text-indigo-950">
+      <div className="relative min-h-screen bg-white text-slate-800 dark:bg-[#0b0f17] dark:text-slate-100 selection:bg-zinc-200 selection:text-zinc-950">
 
 
         {/* Decorative gradient blob */}
-        <div className="pointer-events-none absolute -top-24 h-[40rem] w-[40rem] rounded-full bg-gradient-to-tr from-indigo-500/20 via-fuchsia-500/10 to-cyan-500/20 blur-3xl" />
+        <div className="pointer-events-none absolute -top-24 h-[40rem] w-[40rem] rounded-full bg-gradient-to-tr from-zinc-500/20 via-sky-500/10 to-teal-500/20 blur-3xl" />
 
         {/* Nav */}
         <header className="sticky top-0 z-9999 backdrop-blur supports-[backdrop-filter]:bg-white/40 dark:supports-[backdrop-filter]:bg-black/20 border-b border-white/10">
@@ -71,10 +71,10 @@ export default function App() {
                 <span>Jonathan Orlowski</span>
               </a>
               <nav className="hidden md:flex items-center gap-6 text-sm">
-                <a href="#projects" className="hover:text-indigo-500">Projects</a>
-                <a href="#about" className="hover:text-indigo-500">About</a>
-                <a href="#contact" className="hover:text-indigo-500">Contact</a>
-                <a href="#CV" className="hover:text-indigo-500">CV</a>
+                <a href="#projects" className="hover:text-zinc-500">Projects</a>
+                <a href="#about" className="hover:text-zinc-500">About</a>
+                <a href="#contact" className="hover:text-zinc-500">Contact</a>
+                <a href="#CV" className="hover:text-zinc-500">CV</a>
               </nav>
               <div className="flex items-center gap-2">
                 <button
@@ -98,10 +98,10 @@ export default function App() {
           {menuOpen && (
             <div className="md:hidden border-t border-white/10">
               <div className="mx-auto max-w-6xl px-4 py-3 flex flex-col gap-3 text-sm">
-                <a href="#projects" className="hover:text-indigo-400">Projects</a>
-                <a href="#about" className="hover:text-indigo-400">About</a>
-                <a href="#contact" className="hover:text-indigo-400">Contact</a>
-                <a href="#CV" className="hover:text-indigo-400">CV</a>
+                <a href="#projects" className="hover:text-zinc-400">Projects</a>
+                <a href="#about" className="hover:text-zinc-400">About</a>
+                <a href="#contact" className="hover:text-zinc-400">Contact</a>
+                <a href="#CV" className="hover:text-zinc-400">CV</a>
               </div>
             </div>
           )}
@@ -118,14 +118,14 @@ export default function App() {
                   transition={{ duration: 0.6 }}
                   className="text-4xl/tight font-semibold sm:text-5xl/tight"
                 >
-                  Full-stack dev with Businss Intelligence background.
+                  I build web apps with the mindset of a BI professional
                 </MotionH1>
                 <p className="mt-4 max-w-prose text-slate-600 dark:text-slate-300">
-                  Experienced technologist pivoting from business intelligence to software engineering, bringing strong full-stack
-                  development skills and proven ability to build scalable database solutions and web applications.
+                  After 10+ years turning business data into actionable insights, I've pivoted to building the applications that create that data.
+                  I bring an analytical approach to development—thinking about performance metrics, user behavior patterns, and scalable architecture from day one.
                 </p>
                 <div className="mt-6 flex flex-wrap items-center gap-3">
-                  <a href="#projects" className="inline-flex items-center gap-2 rounded-2xl bg-indigo-600 px-4 py-2 text-white shadow hover:shadow-lg hover:-translate-y-0.5 transition">
+                  <a href="#projects" className="inline-flex items-center gap-2 rounded-2xl bg-zinc-600 px-4 py-2 text-white shadow hover:shadow-lg hover:-translate-y-0.5 transition">
                     See my work <ArrowRight className="h-4 w-4" />
                   </a>
                   <a href="#contact" className="inline-flex items-center gap-2 rounded-2xl border border-white/20 px-4 py-2 hover:bg-white/10">
@@ -148,9 +148,9 @@ export default function App() {
                 className="relative"
               >
                 <div className="group relative mx-auto max-w-sm overflow-hidden border border-white/10 bg-white/5 p-6 shadow-2xl backdrop-blur">
-                  <div className="inset-0 bg-gradient-to-br from-indigo-500/10 via-transparent to-fuchsia-500/10" />
+                  <div className="inset-0 bg-gradient-to-br from-zinc-500/10 via-transparent to-sky-500/10" />
                   <div className="relative">
-                    <div className="mx-auto m-0 h-auto w-28 rounded-full bg-gradient-to-tr from-indigo-500 to-fuchsia-500 p-1">
+                    <div className="mx-auto m-0 h-auto w-28 rounded-full bg-gradient-to-tr from-zinc-500 to-sky-500 p-1">
                       <img
                         className="aspect-square w-full h-full rounded-full object-cover bg-white/90 dark:bg-black/60 backdrop-blur flex items-center justify-center text-xs uppercase tracking-wide"
                         src={AVATAR}
@@ -187,7 +187,7 @@ export default function App() {
           <div className="mx-auto max-w-6xl px-4 py-20">
             <div className="flex items-end justify-between gap-4">
               <h3 className="text-2xl font-semibold">Selected Projects</h3>
-              <a href="https://github.com/jonorl" target="_blank" rel="noreferrer" className="text-sm inline-flex items-center gap-1 hover:text-indigo-500">
+              <a href="https://github.com/jonorl" target="_blank" rel="noreferrer" className="text-sm inline-flex items-center gap-1 hover:text-zinc-500">
                 View all <ExternalLink className="h-4 w-4" />
               </a>
             </div>
@@ -205,10 +205,15 @@ export default function App() {
           <div className="mx-auto max-w-6xl px-4 py-20">
             <h3 className="text-2xl font-semibold">About</h3>
             <p className="mt-4  text-slate-600 dark:text-slate-300">
-              I’m Jon, former business intelligence manager, turned into full stack dev. Born and raised in Argentina I’m now travelling back and forth between the UK and Uganda due to family commitments.
+              I'm Jon, and I've spent the last few years making a deliberate transition from business intelligence management to full-stack development.
+              Born in Argentina, now splitting time between London and Kampala due to family commitments, which has given me plenty of practice working across time zones and cultures.
             </p>
             <br />
-            <p className="mt-4  text-slate-600 dark:text-slate-300">I've been focusing on my family whilst cementing some of the key Computer Science knowledge and working on various projects. Whether you are from recruitment or a fellow technology enthusiast, please get in touch, I'd love to hear what opportunities we can develop together.</p>
+            <p className="mt-4  text-slate-600 dark:text-slate-300">What sets me apart? I approach development with a BI mindset. I naturally think about data flow, performance bottlenecks, and how users actually behave
+              (not just how we think they should). I have first-hand experience in digitalisation projects, roadmapping and UX design</p>
+            <br />
+            <p className="mt-4  text-slate-600 dark:text-slate-300">Currently building projects that demonstrate both technical skill and business understanding. Always interested in connecting with fellow developers,
+              startup founders, or companies looking for someone who can bridge the gap between technical implementation and business outcomes.</p>
             <ul className="list-none mt-6 grid gap-3 sm:grid-cols-2">
               <li className="rounded-2xl border border-white/10 bg-white/5 p-4">Strong focus on UX & maintainability.</li>
               <li className="rounded-2xl border border-white/10 bg-white/5 p-4">Performance minded: code‑splitting, context API, memoization.</li>
@@ -228,7 +233,7 @@ export default function App() {
                   Grab a one‑page PDF with skills, selected projects, and links.
                 </p>
                 <div className="mt-5 flex flex-wrap gap-3">
-                  <a href="/public/CV.pdf" className="inline-flex items-center gap-2 rounded-2xl bg-indigo-600 px-4 py-2 text-white shadow hover:shadow-lg hover:-translate-y-0.5 transition">
+                  <a href="/public/CV.pdf" className="inline-flex items-center gap-2 rounded-2xl bg-zinc-600 px-4 py-2 text-white shadow hover:shadow-lg hover:-translate-y-0.5 transition">
                     <Download className="h-4 w-4" /> Download PDF
                   </a>
                 </div>
@@ -251,7 +256,7 @@ export default function App() {
           <div className="mx-auto max-w-6xl px-4 py-10 text-sm text-slate-500">
             <div className="flex items-center space-x-2">
               <span>© {new Date().getFullYear()} Jonathan Orlowski. Built with React & Tailwind.</span>
-              <a href="https://github.com/jonorl/personal-website" target="_blank" rel="noreferrer" className="text-sm inline-flex items-center gap-1 hover:text-indigo-500">
+              <a href="https://github.com/jonorl/personal-website" target="_blank" rel="noreferrer" className="text-sm inline-flex items-center gap-1 hover:text-zinc-500">
                 <FaGithub />
               </a>
             </div>
