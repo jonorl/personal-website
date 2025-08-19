@@ -228,7 +228,7 @@ export default function App() {
               <div>
                 <h3 className="text-2xl font-semibold">CV</h3>
                 <p className="mt-3 text-slate-600 dark:text-slate-300">
-                  Grab a one‑page PDF with skills, selected projects, and links.
+                  Grab a one‑page PDF with my full work experience and skills.
                 </p>
                 <div className="mt-5 flex flex-wrap gap-3">
                   <a href="/CV.pdf" className="inline-flex items-center gap-2 rounded-2xl bg-zinc-600 px-4 py-2 text-white shadow hover:shadow-lg hover:-translate-y-0.5 transition">
