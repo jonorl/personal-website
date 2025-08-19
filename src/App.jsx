@@ -231,7 +231,7 @@ export default function App() {
                   Grab a one‑page PDF with skills, selected projects, and links.
                 </p>
                 <div className="mt-5 flex flex-wrap gap-3">
-                  <a href="/public/CV.pdf" className="inline-flex items-center gap-2 rounded-2xl bg-zinc-600 px-4 py-2 text-white shadow hover:shadow-lg hover:-translate-y-0.5 transition">
+                  <a href="/CV.pdf" className="inline-flex items-center gap-2 rounded-2xl bg-zinc-600 px-4 py-2 text-white shadow hover:shadow-lg hover:-translate-y-0.5 transition">
                     <Download className="h-4 w-4" /> Download PDF
                   </a>
                 </div>
