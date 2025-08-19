@@ -15,20 +15,20 @@ export default function App() {
   const projects = [
     {
       title: "OdinBook (x.com clone)",
-      description: "Final project for The Odin Project. A whole social media site with Guest/Google/Github logins",
+      description: "Final project for The Odin Project. A whole social media site with Guest/Google/Github logins. Follow, like, repost and sahre features. Image uploads to Cloudinary",
       tech: ["React", "Express", "JWT", "OAuth2", "Cloudinary"],
       href: "https://odin-book.pages.dev/",
     },
     {
       title: "Messaging App",
-      description: "Real-time messaging with guest login, image attachments, JWT auth, and spinner loaders.",
+      description: "Real-time messaging with guest login, image attachments, JWT auth, and a chat-bot.",
       tech: ["Node", "Express", "PostgreSQL", "Prisma"],
       href: "https://message-app-top.netlify.app/",
     },
     {
       title: "Blog-API",
-      description: "Mono-repo with both a user and CMS frontends + backend.",
-      tech: ["React", "Vite", "Tailwind"],
+      description: "Mono-repo blog project with both a user and CMS frontends + backend. TinyMCE added for better text formatting",
+      tech: ["React", "Vite", "Tailwind", "TinyMCE"],
       href: "https://users-frontend.netlify.app/",
     },
     {
@@ -109,7 +109,7 @@ export default function App() {
 
         {/* Hero */}
         <section id="home" className="relative z-10">
-          <div className="mx-auto max-w-6xl px-4 py-24 sm:py-28">
+          <div className="mx-auto max-w-6xl px-4 py-14 sm:py-18">
             <div className="grid items-center gap-10 md:grid-cols-2">
               <div>
                 <MotionH1
@@ -118,11 +118,11 @@ export default function App() {
                   transition={{ duration: 0.6 }}
                   className="text-4xl/tight font-semibold sm:text-5xl/tight"
                 >
-                  I build web apps with the mindset of a BI professional
+                  Full-stack dev focused on performance and data – with the mindset of a BI professional.
                 </MotionH1>
                 <p className="mt-4 max-w-prose text-slate-600 dark:text-slate-300">
                   After 10+ years turning business data into actionable insights, I've pivoted to building the applications that create that data.
-                  I bring an analytical approach to development—thinking about performance metrics, user behavior patterns, and scalable architecture from day one.
+                  I bring an analytical approach to development–thinking about performance metrics, user behavior patterns, and scalable architecture from day one.
                 </p>
                 <div className="mt-6 flex flex-wrap items-center gap-3">
                   <a href="#projects" className="inline-flex items-center gap-2 rounded-2xl bg-zinc-600 px-4 py-2 text-white shadow hover:shadow-lg hover:-translate-y-0.5 transition">
@@ -208,10 +208,8 @@ export default function App() {
               I'm Jon, and I've spent the last few years making a deliberate transition from business intelligence management to full-stack development.
               Born in Argentina, now splitting time between London and Kampala due to family commitments, which has given me plenty of practice working across time zones and cultures.
             </p>
-            <br />
             <p className="mt-4  text-slate-600 dark:text-slate-300">What sets me apart? I approach development with a BI mindset. I naturally think about data flow, performance bottlenecks, and how users actually behave
-              (not just how we think they should). I have first-hand experience in digitalisation projects, roadmapping and UX design</p>
-            <br />
+              (not just how we think they should). I have first-hand experience in digitalisation projects, roadmapping and UX design.</p>
             <p className="mt-4  text-slate-600 dark:text-slate-300">Currently building projects that demonstrate both technical skill and business understanding. Always interested in connecting with fellow developers,
               startup founders, or companies looking for someone who can bridge the gap between technical implementation and business outcomes.</p>
             <ul className="list-none mt-6 grid gap-3 sm:grid-cols-2">
@@ -254,14 +252,21 @@ export default function App() {
         {/* Footer */}
         <footer className="relative z-10 border-t border-white/10">
           <div className="mx-auto max-w-6xl px-4 py-10 text-sm text-slate-500">
-            <div className="flex items-center space-x-2">
-              <span>© {new Date().getFullYear()} Jonathan Orlowski. Built with React & Tailwind.</span>
-              <a href="https://github.com/jonorl/personal-website" target="_blank" rel="noreferrer" className="text-sm inline-flex items-center gap-1 hover:text-zinc-500">
-                <FaGithub />
+            <p className="leading-relaxed">
+              © {new Date().getFullYear()} Jonathan Orlowski. Built with React & Tailwind.
+              <a
+                href="https://github.com/jonorl/personal-website"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center align-middle ml-2 hover:text-white/80"
+              >
+                <FaGithub className="mb-1" aria-label="GitHub" />
               </a>
-            </div>
+            </p>
           </div>
         </footer>
+
+
       </div>
     </div>
   );
