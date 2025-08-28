@@ -34,7 +34,7 @@ export default function App() {
     {
       title: "Where's Bluey (Where's Wally/Waldo clone)",
       description: "Interactive children's game including backend-driven timer and leaderboard.",
-      tech: ["Node", "Express", "PostgreSQL", "Prisma"],
+      tech: ["Typescript", "Node", "Express", "PostgreSQL", "Prisma"],
       href: "https://wheres-bluey.netlify.app/",
     },
   ];
