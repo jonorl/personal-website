@@ -18,24 +18,28 @@ export default function App() {
       description: "Final project for The Odin Project. A whole social media site with Guest/Google/Github logins. Follow, like, repost and sahre features. Image uploads to Cloudinary",
       tech: ["React", "Express", "JWT", "OAuth2", "Cloudinary"],
       href: "https://odin-book.pages.dev/",
+      githubHref: "https://github.com/jonorl/odin-book",
     },
     {
       title: "Messaging App",
       description: "Real-time messaging with guest login, image attachments, JWT auth, and a chat-bot.",
       tech: ["Node", "Express", "PostgreSQL", "Prisma"],
       href: "https://message-app-top.netlify.app/",
+      githubHref: "https://github.com/jonorl/messaging-app",
     },
     {
       title: "Blog-API",
       description: "Mono-repo blog project with both a user and CMS frontends + backend. TinyMCE added for better text formatting",
       tech: ["React", "Vite", "Tailwind", "TinyMCE"],
       href: "https://users-frontend.netlify.app/",
+      githubHref: "https://github.com/jonorl/blog-API",
     },
     {
       title: "Where's Bluey (Where's Wally/Waldo clone)",
-      description: "Interactive children's game including backend-driven timer and leaderboard.",
+      description: "Interactive children's game including backend-driven timer and leaderboard. Now refactored using Typescript",
       tech: ["Typescript", "Node", "Express", "PostgreSQL", "Prisma"],
       href: "https://wheres-bluey.netlify.app/",
+      githubHref: "https://github.com/jonorl/wheres-bluey/tree/ts-conversion",
     },
   ];
 
@@ -272,7 +276,7 @@ export default function App() {
   );
 }
 
-function TiltCard({ title, description, tech, href }) {
+function TiltCard({ title, description, tech, href, githubHref }) {
   const ref = useRef(null);
   const [transform, setTransform] = useState("rotateX(0deg) rotateY(0deg)");
 
@@ -305,6 +309,14 @@ function TiltCard({ title, description, tech, href }) {
           <h4 className="text-lg font-semibold flex items-center gap-2">
             {title}
             <ExternalLink className="h-4 w-4 opacity-60 group-hover:opacity-100" />
+            <FaGithub
+              className="h-4 w-4 opacity-60 group-hover:opacity-100 cursor-pointer hover:opacity-80"
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                window.open(githubHref, '_blank', 'noreferrer');
+              }}
+            />
           </h4>
           <p className="mt-2 line-clamp-3 text-sm text-slate-600 dark:text-slate-300">{description}</p>
           <div className="mt-4 flex flex-wrap gap-2 text-xs">
