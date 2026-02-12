@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, ArrowRight, Download, ExternalLink, MonitorCheck } from "lucide-react";
+import { Mail, Download, ExternalLink, MonitorCheck, Brain } from "lucide-react";
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
 export default function App() {
@@ -11,11 +11,43 @@ export default function App() {
   const MotionH1 = motion.h1;
   const MotionDiv = motion.div;
 
-  // Hard-coded projects
-  const projects = [
+  // AI/ML Projects
+  const aiProjects = [
+    {
+      title: "Agentic AI Workflow",
+      description: "Checks the latest news headlines from an API, chooses the best title, compares it against what is in memory for the last few days, then creates and descriptions and returns an image.",
+      tech: ["n8n / LangChain", "Gemini", "Groq Llama", "Flux1 Schenll", "Hugging Face", "Cloudinary", "Docker", "PostgreSQL"],
+      href: "https://agentic-ai-news-to-image.pages.dev/",
+      githubHref: "https://github.com/jonorl/agentic-ai-news-to-image",
+    },
+    {
+      title: "Voice Clone",
+      description: "Voice clone demo for voice in Spanish (Argentinean accent) using XTTS v2 + fine tuning. Model Trained using local hardware.",
+      tech: ["Pytorch", "Coqui XTTS v2", "Hugging Faces", "Gradio"],
+      href: "https://voice-clone-pepe.pages.dev/",
+      githubHref: "https://github.com/jonorl/voice-clone",
+    },
+    {
+      title: "Mini-LLM Text Generator",
+      description: " Brief experiment using Simpsons scripts and based on GPT-2 mini. Trained using local hardware.",
+      tech: ["Pytorch", "GPT-2", "Tokenizers", "Hugging Faces", "Gradio"],
+      href: "https://simpsons-gpt.pages.dev/",
+      githubHref: "https://github.com/jonorl/simpsons-GPT",
+    },
+    {
+      title: "Image Classification",
+      description: "Binary image classification for pizza based on convnext_tiny architecture.",
+      tech: ["FastAI", "convnext_tiny", "Pytorch", "Hugging Faces", "Gradio"],
+      href: "https://fugazzeta.pages.dev/",
+      githubHref: "https://github.com/jonorl/fugazzeta-frontend",
+    },
+  ];
+
+  // Full-stack projects
+  const fullStackProjects = [
     {
       title: "OdinBook (x.com clone)",
-      description: "Final project for The Odin Project. A whole social media site with Guest/Google/Github logins. Follow, like, repost and sahre features. Image uploads to Cloudinary",
+      description: "Final project for The Odin Project. A whole social media site with Guest/Google/Github logins. Follow, like, repost and share features. Image uploads to Cloudinary",
       tech: ["React", "Express", "JWT", "OAuth2", "Cloudinary"],
       href: "https://odin-book.pages.dev/",
       githubHref: "https://github.com/jonorl/odin-book",
@@ -75,7 +107,8 @@ export default function App() {
                 <span>Jonathan Orlowski</span>
               </a>
               <nav className="hidden md:flex items-center gap-6 text-sm">
-                <a href="#projects" className="hover:text-zinc-500">Projects</a>
+                <a href="#ai-projects" className="hover:text-zinc-500">AI/ML Projects</a>
+                <a href="#fullstack-projects" className="hover:text-zinc-500">Full-Stack Projects</a>
                 <a href="#about" className="hover:text-zinc-500">About</a>
                 <a href="#contact" className="hover:text-zinc-500">Contact</a>
                 <a href="#CV" className="hover:text-zinc-500">CV</a>
@@ -102,7 +135,8 @@ export default function App() {
           {menuOpen && (
             <div className="md:hidden border-t border-white/10">
               <div className="mx-auto max-w-6xl px-4 py-3 flex flex-col gap-3 text-sm">
-                <a href="#projects" className="hover:text-zinc-400">Projects</a>
+                <a href="#ai-projects" className="hover:text-zinc-400">AI/ML Projects</a>
+                <a href="#fullstack-projects" className="hover:text-zinc-400">Full-Stack Projects</a>
                 <a href="#about" className="hover:text-zinc-400">About</a>
                 <a href="#contact" className="hover:text-zinc-400">Contact</a>
                 <a href="#CV" className="hover:text-zinc-400">CV</a>
@@ -122,15 +156,19 @@ export default function App() {
                   transition={{ duration: 0.6 }}
                   className="text-4xl/tight font-semibold sm:text-5xl/tight"
                 >
-                  Full-stack dev focused on performance and data – with the mindset of a BI professional.
+                  MLOps-Oriented Software Engineer with a BI background
                 </MotionH1>
                 <p className="mt-4 max-w-prose text-slate-600 dark:text-slate-300">
-                  After 10+ years turning business data into actionable insights, I've pivoted to building the applications that create that data.
-                  I bring an analytical approach to development–thinking about performance metrics, user behavior patterns, and scalable architecture from day one.
+                  Bridging the gap between ML development and production deployment. After 10+ years in business intelligence,
+                  I now build and deploy ML systems with a focus on reliability, monitoring, and scalable infrastructure.
+                </p>
+                <p className="mt-4 max-w-prose text-slate-600 dark:text-slate-300">
+                  I bring full-stack fundamentals, deployment + maintenance expertise, and an analytical mindset to ML operations-thinking
+                  about model performance, data pipelines, and production readiness from day one.
                 </p>
                 <div className="mt-6 flex flex-wrap items-center gap-3">
-                  <a href="#projects" className="inline-flex items-center gap-2 rounded-2xl bg-zinc-600 px-4 py-2 text-white shadow hover:shadow-lg hover:-translate-y-0.5 transition">
-                    See my work <ArrowRight className="h-4 w-4" />
+                  <a href="#ai-projects" className="inline-flex items-center gap-2 rounded-2xl bg-zinc-600 px-4 py-2 text-white shadow hover:shadow-lg hover:-translate-y-0.5 transition">
+                    <Brain className="h-4 w-4" /> AI/ML Projects
                   </a>
                   <a href="#contact" className="inline-flex items-center gap-2 rounded-2xl border border-white/20 px-4 py-2 hover:bg-white/10">
                     <Mail className="h-4 w-4" /> Contact
@@ -156,23 +194,21 @@ export default function App() {
                   <div className="relative">
                     <div className="mx-auto m-0 h-auto w-28 rounded-full bg-gradient-to-tr from-zinc-500 to-sky-500 p-1">
                       <img
-                        className="aspect-square w-full h-full rounded-full object-cover bg-white/90 dark:bg-black/60 backdrop-blur flex items-center justify-center text-xs uppercase tracking-wide"
                         src={AVATAR}
-                        alt="avatar"
+                        alt="Jonathan Orlowski"
+                        className="h-full w-full rounded-full object-cover"
                       />
                     </div>
-                    <h2 className="mt-4 text-xl font-semibold">React • Node • PostgreSQL</h2>
-                    <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">
-                      London, UK / Kampala, Uganda · Open to remote
-                    </p>
-                    <ul className="mt-4 grid grid-cols-2 gap-2 text-sm">
+                    <h4 className="mt-4 text-center text-lg font-semibold">Jonathan Orlowski</h4>
+                    <p className="mt-1 text-center text-sm text-slate-500">MLOps-Oriented Software Engineer</p>
+                    <ul className="mt-4 grid grid-cols-2 gap-2 text-xs">
                       {[
-                        "React / Vite",
-                        "Javascript",
-                        "Tailwind CSS",
-                        "Express.js",
+                        "PyTorch & TensorFlow",
+                        "React & Node",
                         "PostgreSQL",
-                        "Prisma ORMs",
+                        "Docker",
+                        "PowerAutomate & n8n",
+                        "PowerBI",
                       ].map((tag) => (
                         <li key={tag} className="rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-center">
                           {tag}
@@ -186,18 +222,48 @@ export default function App() {
           </div>
         </section>
 
-        {/* Projects */}
-        <section id="projects" className="relative z-10 border-t border-white/10">
+        {/* AI/ML Projects */}
+        <section id="ai-projects" className="relative z-10 border-t border-white/10">
           <div className="mx-auto max-w-6xl px-4 py-20">
             <div className="flex items-end justify-between gap-4">
-              <h3 className="text-2xl font-semibold">Selected Projects</h3>
+              <div>
+                <h3 className="text-2xl font-semibold flex items-center gap-2">
+                  AI/ML Projects
+                </h3>
+                <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
+                  Machine learning models deployed to production with full demo websites
+                </p>
+              </div>
               <a href="https://github.com/jonorl" target="_blank" rel="noreferrer" className="text-sm inline-flex items-center gap-1 hover:text-zinc-500">
                 View all <ExternalLink className="h-4 w-4" />
               </a>
             </div>
 
             <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-2">
-              {projects.map((p) => (
+              {aiProjects.map((p) => (
+                <TiltCard key={p.title} {...p} />
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Full-Stack Projects */}
+        <section id="fullstack-projects" className="relative z-10 border-t border-white/10">
+          <div className="mx-auto max-w-6xl px-4 py-20">
+            <div className="flex items-end justify-between gap-4">
+              <div>
+                <h3 className="text-2xl font-semibold">Full-Stack Projects</h3>
+                <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
+                  Web applications built with React, Node.js, and PostgreSQL
+                </p>
+              </div>
+              <a href="https://github.com/jonorl" target="_blank" rel="noreferrer" className="text-sm inline-flex items-center gap-1 hover:text-zinc-500">
+                View all <ExternalLink className="h-4 w-4" />
+              </a>
+            </div>
+
+            <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-2">
+              {fullStackProjects.map((p) => (
                 <TiltCard key={p.title} {...p} />
               ))}
             </div>
@@ -209,18 +275,26 @@ export default function App() {
           <div className="mx-auto max-w-6xl px-4 py-20">
             <h3 className="text-2xl font-semibold">About</h3>
             <p className="mt-4  text-slate-600 dark:text-slate-300">
-              I'm Jon, and I've spent the last few years making a deliberate transition from business intelligence management to full-stack development.
-              Born in Argentina, now splitting time between London and Kampala due to family commitments, which has given me plenty of practice working across time zones and cultures.
+              I'm Jon, and I've spent the last few years making a deliberate transition from business intelligence management
+              to software engineering, with a recent focus on ML operations and deployment. Born in Argentina, now splitting
+              time between London and Kampala due to family commitments, which has given me plenty of practice working across
+              time zones and cultures.
             </p>
-            <p className="mt-4  text-slate-600 dark:text-slate-300">What sets me apart? I approach development with a BI mindset. I naturally think about data flow, performance bottlenecks, and how users actually behave
-              (not just how we think they should). I have first-hand experience in digitalisation projects, roadmapping and UX design.</p>
-            <p className="mt-4  text-slate-600 dark:text-slate-300">Currently building projects that demonstrate both technical skill and business understanding. Always interested in connecting with fellow developers,
-              startup founders, or companies looking for someone who can bridge the gap between technical implementation and business outcomes.</p>
+            <p className="mt-4  text-slate-600 dark:text-slate-300">
+              What sets me apart? I approach ML deployment with a BI mindset. I naturally think about data pipelines, model
+              monitoring, performance metrics, and how systems behave in production (not just in notebooks). I have first-hand
+              experience in digitalisation projects, roadmapping and understanding the business value of technical implementations.
+            </p>
+            <p className="mt-4  text-slate-600 dark:text-slate-300">
+              Currently building ML projects that demonstrate end-to-end deployment-from model training to production serving
+              with monitoring. Always interested in connecting with ML engineers, MLOps practitioners, or companies
+              looking for someone who can bridge technical ML work and production operations.
+            </p>
             <ul className="list-none mt-6 grid gap-3 sm:grid-cols-2">
-              <li className="rounded-2xl border border-white/10 bg-white/5 p-4">Strong focus on UX & maintainability.</li>
-              <li className="rounded-2xl border border-white/10 bg-white/5 p-4">Performance minded: code‑splitting, context API, memoization.</li>
-              <li className="rounded-2xl border border-white/10 bg-white/5 p-4">Comfortable across the stack: React, Express, PostgreSQL/Prisma.</li>
-              <li className="rounded-2xl border border-white/10 bg-white/5 p-4">Shipping mindset: iterate quickly, add polish last.</li>
+              <li className="rounded-2xl border border-white/10 bg-white/5 p-4">ML deployment: Docker, model serving, monitoring</li>
+              <li className="rounded-2xl border border-white/10 bg-white/5 p-4">Full-stack foundation: React, Express, PostgreSQL</li>
+              <li className="rounded-2xl border border-white/10 bg-white/5 p-4">Data-driven approach from BI background</li>
+              <li className="rounded-2xl border border-white/10 bg-white/5 p-4">Production-ready mindset: reliability & scalability</li>
             </ul>
           </div>
         </section>
@@ -244,7 +318,7 @@ export default function App() {
                 <h3 className="text-xl font-semibold">Contact</h3>
                 <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">Email is best. I read everything.</p>
                 <div className="mt-4">
-                  <a href="mailto:jon@example.com" className="inline-flex items-center gap-2 rounded-2xl bg-white/10 px-4 py-2 hover:bg-white/20">
+                  <a href="mailto:jonorl@gmail.com" className="inline-flex items-center gap-2 rounded-2xl bg-white/10 px-4 py-2 hover:bg-white/20">
                     <Mail className="h-4 w-4" /> jonorl@gmail.com
                   </a>
                 </div>
@@ -257,7 +331,7 @@ export default function App() {
         <footer className="relative z-10 border-t border-white/10">
           <div className="mx-auto max-w-6xl px-4 py-10 text-sm text-slate-500">
             <p className="leading-relaxed">
-              © {new Date().getFullYear()} Jonathan Orlowski. Built with React & Tailwind.
+              © {new Date().getFullYear()} Jonathan Orlowski. Built with React+Vite & Tailwind.
               <a
                 href="https://github.com/jonorl/personal-website"
                 target="_blank"
@@ -329,4 +403,3 @@ function TiltCard({ title, description, tech, href, githubHref }) {
     </a>
   );
 }
-
