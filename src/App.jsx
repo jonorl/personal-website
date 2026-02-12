@@ -235,7 +235,8 @@ export default function App() {
                 </p>
               </div>
               <a href="https://github.com/jonorl" target="_blank" rel="noreferrer" className="text-sm inline-flex items-center gap-1 hover:text-zinc-500">
-                View all <ExternalLink className="h-4 w-4" />
+                <span className="hidden sm:inline">View all</span>
+                <ExternalLink className="h-4 w-4" />
               </a>
             </div>
 
@@ -258,7 +259,8 @@ export default function App() {
                 </p>
               </div>
               <a href="https://github.com/jonorl" target="_blank" rel="noreferrer" className="text-sm inline-flex items-center gap-1 hover:text-zinc-500">
-                View all <ExternalLink className="h-4 w-4" />
+                <span className="hidden sm:inline">View all</span>
+                <ExternalLink className="h-4 w-4" />
               </a>
             </div>
 
@@ -376,7 +378,7 @@ function TiltCard({ title, description, tech, href, githubHref }) {
         onMouseLeave={() => { setTransform("rotateX(0deg) rotateY(0deg)"); }}
         onMouseMove={onMove}
         style={{ transform, transformStyle: 'preserve-3d' }}
-        className="relative h-56 rounded-2xl border border-white/10 bg-white/5 p-5 transition-transform will-change-transform"
+        className="relative min-h-40 rounded-2xl border border-white/10 bg-white/5 p-5 transition-transform will-change-transform"
       >
         <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br from-white/10 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
         <div style={{ transform: 'translateZ(30px)' }} className="relative">
