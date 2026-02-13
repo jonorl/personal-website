@@ -16,7 +16,7 @@ export default function App() {
     {
       title: "Agentic AI Workflow",
       description: "Checks the latest news headlines from an API, chooses the best title, compares it against what is in memory for the last few days, then creates and descriptions and returns an image.",
-      tech: ["n8n / LangChain", "Gemini", "Groq Llama", "Flux1 Schenll", "Hugging Face", "Cloudinary", "Docker", "PostgreSQL"],
+      tech: ["n8n / LangChain", "Gemini", "Groq Llama", "Flux1 Schenll", "Cloudinary", "Docker", "PostgreSQL"],
       href: "https://agentic-ai-news-to-image.pages.dev/",
       githubHref: "https://github.com/jonorl/agentic-ai-news-to-image",
     },
@@ -29,7 +29,7 @@ export default function App() {
     },
     {
       title: "Mini-LLM Text Generator",
-      description: " Brief experiment using Simpsons scripts and based on GPT-2 mini. Trained using local hardware.",
+      description: "Brief experiment using Simpsons scripts and based on GPT-2 mini. Trained using local hardware.",
       tech: ["Pytorch", "GPT-2", "Tokenizers", "Hugging Faces", "Gradio"],
       href: "https://simpsons-gpt.pages.dev/",
       githubHref: "https://github.com/jonorl/simpsons-GPT",
