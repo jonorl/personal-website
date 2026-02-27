@@ -24,7 +24,7 @@ export default function App() {
       title: "Voice Clone",
       description: "Voice clone demo for voice in Spanish (Argentinean accent) using XTTS v2 + fine tuning. Model Trained using local hardware.",
       tech: ["Pytorch", "Coqui XTTS v2", "Hugging Faces", "Gradio"],
-      href: "https://https://jonathan-orlowski.dev/voice-clone/",
+      href: "https://jonathan-orlowski.dev/voice-clone/",
       githubHref: "https://github.com/jonorl/voice-clone",
     },
     {
