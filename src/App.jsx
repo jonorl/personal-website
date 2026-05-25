@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Mail, Download, ExternalLink, MonitorCheck, Brain } from "lucide-react";
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import InfraSection from './components/InfraSection'
+import MetricTile from './components/MetricTile'
 
 export default function App() {
   const [dark, setDark] = useState(true);
@@ -222,6 +224,11 @@ export default function App() {
           </div>
         </section>
 
+        {/* DevOps */}
+
+        <InfraSection/>
+        <MetricTile/> 
+                
         {/* AI/ML Projects */}
         <section id="ai-projects" className="relative z-10 border-t border-white/10">
           <div className="mx-auto max-w-6xl px-4 py-10">
