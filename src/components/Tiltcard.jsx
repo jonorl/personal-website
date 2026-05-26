@@ -6,20 +6,6 @@ export default function TiltCard({ title, description, tech, href, githubHref })
   const ref = useRef(null);
   const [transform, setTransform] = useState("rotateX(0deg) rotateY(0deg)");
 
-  useEffect(() => {
-    const handler = (e) => {
-      const anchor = e.target.closest('a[href^="#"]');
-      if (!anchor) return;
-      e.preventDefault();
-      const id = anchor.getAttribute('href').slice(1);
-      const el = document.getElementById(id);
-      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      setMenuOpen(false);
-    };
-    document.addEventListener('click', handler);
-    return () => document.removeEventListener('click', handler);
-  }, []);
-
   function onMove(e) {
     if (!ref.current) return;
     const rect = ref.current.getBoundingClientRect();

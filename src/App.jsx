@@ -25,7 +25,7 @@ export default function App() {
         {/* Decorative gradient blob */}
         <div className="pointer-events-none absolute -top-24 h-[40rem] w-[40rem] rounded-full bg-gradient-to-tr from-zinc-500/20 via-sky-500/10 to-teal-500/20 blur-3xl" />
 
-        <Header dark={dark} menuOpen={menuOpen} setDark={setDark} />
+        <Header dark={dark} menuOpen={menuOpen} setDark={setDark} setMenuOpen={setMenuOpen} />
         <Hero />
         <InfraSection />
         <MetricTile />

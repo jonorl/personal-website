@@ -1,6 +1,22 @@
+import { useEffect } from "react";
 import { Mail, Download, ExternalLink, MonitorCheck } from "lucide-react";
 
-export default function Header({dark, menuOpen, setDark}) {
+export default function Header({ dark, menuOpen, setDark, setMenuOpen }) {
+
+  useEffect(() => {
+    const handler = (e) => {
+      const anchor = e.target.closest('a[href^="#"]');
+      if (!anchor) return;
+      e.preventDefault();
+      const id = anchor.getAttribute('href').slice(1);
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setMenuOpen(false);
+    };
+    document.addEventListener('click', handler);
+    return () => document.removeEventListener('click', handler);
+  }, []);
+  
   return (
     <header className="sticky top-0 z-9999 backdrop-blur supports-[backdrop-filter]:bg-white/40 dark:supports-[backdrop-filter]:bg-black/20 border-b border-white/10">
       <div className="mx-auto max-w-6xl px-4">
