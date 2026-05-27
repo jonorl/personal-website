@@ -44,7 +44,7 @@ export default function TiltCard({ title, description, tech, href, githubHref })
               }}
             />
           </h4>
-          <p className="mt-2 line-clamp-3 text-sm text-slate-600 dark:text-slate-300">{description}</p>
+          <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">{description}</p>
           <div className="mt-4 flex flex-wrap gap-2 text-xs">
             {tech.map((t) => (
               <span key={t} className="rounded-xl border border-white/10 bg-white/5 px-2 py-1">{t}</span>
