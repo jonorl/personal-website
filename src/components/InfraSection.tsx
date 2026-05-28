@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
-import { useServerMetrics, stacks, METRICS_URL, POLL_INTERVAL_MS } from "./MetricTile";
-import { Activity, Server, Box, BarChart3 } from "lucide-react";
+import { useServerMetrics } from "./MetricTile";
 import MetricTile from "./MetricTile";
+import { infraStacks, POLL_INTERVAL_MS } from "../const/infraStacks";
 
 export default function InfraSection() {
   const { metrics, status } = useServerMetrics();
@@ -39,7 +39,7 @@ export default function InfraSection() {
 
         {/* Compose stacks */}
         <div className="mt-8 grid gap-6 md:grid-cols-3">
-          {stacks.map(({ filename, label, Icon, description, services }, i) => (
+          {infraStacks.map(({ filename, label, Icon, description, services }, i) => (
             <MotionDiv
               key={filename}
               initial={{ opacity: 0, y: 16 }}

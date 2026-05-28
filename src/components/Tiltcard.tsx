@@ -1,12 +1,20 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState, MouseEvent } from "react";
 import { ExternalLink } from "lucide-react";
 import { FaGithub } from 'react-icons/fa';
 
-export default function TiltCard({ title, description, tech, href, githubHref }) {
-  const ref = useRef(null);
+interface TiltCardProps {
+  title: string;
+  description: string;
+  tech: string[];
+  href: string;
+  githubHref: string;
+}
+
+export default function TiltCard({ title, description, tech, href, githubHref }: TiltCardProps) {
+  const ref = useRef<HTMLDivElement>(null);
   const [transform, setTransform] = useState("rotateX(0deg) rotateY(0deg)");
 
-  function onMove(e) {
+  function onMove(e: MouseEvent<HTMLDivElement>) {
     if (!ref.current) return;
     const rect = ref.current.getBoundingClientRect();
     const x = e.clientX - rect.left;

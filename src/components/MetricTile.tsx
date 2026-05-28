@@ -1,45 +1,36 @@
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
-import { Activity, Server, Box, BarChart3 } from "lucide-react";
- 
+import { POLL_INTERVAL_MS } from '../const/infraStacks'
+
+export type ServerStatus = "loading" | "error" | "ok";
+
+export interface ServerMetrics {
+  cpu: number;
+  memory: number;
+  uptime: string;
+  disk: number;
+}
+
+interface UseServerMetricsResult {
+  metrics: ServerMetrics | null;
+  status: ServerStatus;
+}
+
+interface MetricTileProps {
+  label: string;
+  value: string;
+  warn: boolean;
+}
+
 // ─── config ──────────────────────────────────────────────────────────────────
 export const METRICS_URL = process.env.NODE_ENV === "production" 
     ? "https://stats.jonathan-orlowski.dev/api/metrics"
     : "http://localhost:3002/api/metrics"
     console.log(METRICS_URL)
-export const POLL_INTERVAL_MS = 10_000;
 // ─────────────────────────────────────────────────────────────────────────────
  
-export const stacks = [
-  {
-    filename: "docker-compose.infra.yml",
-    label: "Infrastructure",
-    Icon: Server,
-    description:
-      "Shared layer - reverse proxy with auto TLS and a single Postgres instance serving all apps, plus n8n.",
-    services: ["Caddy (reverse proxy + TLS)", "PostgreSQL 17", "n8n workflow engine" ,"Web metrics (see below)"],
-  },
-  {
-    filename: "docker-compose.apps.yml",
-    label: "Applications",
-    Icon: Box,
-    description:
-      "All 8 portfolio projects running as isolated containers, routed through Caddy.",
-    services: ["4 AI Gradio containers", "4 full stack projects", "Images hosted on GHCR"],
-  },
-  {
-    filename: "docker-compose.monitoring.yml",
-    label: "Observability",
-    Icon: BarChart3,
-    description:
-      "Prometheus scrapes cAdvisor and node-exporter every 15 s; Grafana visualises the lot.",
-    services: ["Grafana", "Prometheus", "cAdvisor", "node-exporter"],
-  },
-];
- 
-export function useServerMetrics() {
-  const [metrics, setMetrics] = useState(null);
-  const [status, setStatus] = useState("loading"); // "loading" | "ok" | "error"
+export function useServerMetrics(): UseServerMetricsResult {
+  const [metrics, setMetrics] = useState<ServerMetrics | null>(null);
+  const [status, setStatus] = useState<ServerStatus>("loading"); // "loading" | "ok" | "error"
  
   useEffect(() => {
     let cancelled = false;
@@ -63,7 +54,7 @@ export function useServerMetrics() {
   return { metrics, status };
 }
  
-export default function MetricTile({ label, value, warn }) {
+export default function MetricTile({ label, value, warn }: MetricTileProps) {
   return (
     <div>
       <p className="text-xs text-slate-500 mb-1">{label}</p>

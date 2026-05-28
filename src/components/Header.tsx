@@ -1,24 +1,39 @@
-import { useEffect } from "react";
-import { Mail, Download, ExternalLink, MonitorCheck } from "lucide-react";
+import { useEffect, Dispatch, SetStateAction } from "react";
+import { MonitorCheck } from "lucide-react";
 
-export default function Header({ dark, menuOpen, setDark, setMenuOpen }) {
+interface HeaderProps {
+  dark: boolean;
+  menuOpen: boolean;
+  setDark: Dispatch<SetStateAction<boolean>>;
+  setMenuOpen: Dispatch<SetStateAction<boolean>>;
+}
+
+export default function Header({ dark, menuOpen, setDark, setMenuOpen }: HeaderProps) {
 
   useEffect(() => {
-    const handler = (e) => {
-      const anchor = e.target.closest('a[href^="#"]');
+    const handler = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      const anchor = target.closest('a[href^="#"]');
       if (!anchor) return;
+      
       e.preventDefault();
-      const id = anchor.getAttribute('href').slice(1);
+      
+      const href = anchor.getAttribute('href');
+      if (!href) return;
+      
+      const id = href.slice(1);
       const el = document.getElementById(id);
+      
       if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
       setMenuOpen(false);
     };
+
     document.addEventListener('click', handler);
     return () => document.removeEventListener('click', handler);
-  }, []);
-  
+  }, [setMenuOpen]); // Added setMenuOpen to dependency array for best practice
+
   return (
-    <header className="sticky top-0 z-9999 backdrop-blur supports-[backdrop-filter]:bg-white/40 dark:supports-[backdrop-filter]:bg-black/20 border-b border-white/10">
+    <header className="sticky top-0 z-[9999] backdrop-blur supports-[backdrop-filter]:bg-white/40 dark:supports-[backdrop-filter]:bg-black/20 border-b border-white/10">
       <div className="mx-auto max-w-6xl px-4">
         <div className="flex h-16 items-center justify-between">
           <a href="#home" className="group inline-flex items-center gap-2 font-semibold">
@@ -51,6 +66,7 @@ export default function Header({ dark, menuOpen, setDark, setMenuOpen }) {
           </div>
         </div>
       </div>
+      
       {/* Mobile menu */}
       {menuOpen && (
         <div className="md:hidden border-t border-white/10">
@@ -65,5 +81,5 @@ export default function Header({ dark, menuOpen, setDark, setMenuOpen }) {
         </div>
       )}
     </header>
-  )
+  );
 }

@@ -1,14 +1,9 @@
 import { useState } from "react";
-
-import { aiProjects } from "./const/aiProjects";
-import { fullStackProjects } from "./const/fullStackProjects";
-
 import Header from './components/Header'
 import Hero from "./components/Hero";
 import InfraSection from './components/InfraSection'
 import MetricTile from './components/MetricTile'
 import AiMl from "./components/AiMl";
-import TiltCard from "./components/Tiltcard";
 import FullStack from "./components/FullStack";
 import About from "./components/About";
 import CVandContact from "./components/CVandContact";
@@ -28,7 +23,6 @@ export default function App() {
         <Header dark={dark} menuOpen={menuOpen} setDark={setDark} setMenuOpen={setMenuOpen} />
         <Hero />
         <InfraSection />
-        <MetricTile />
         <AiMl />
         <FullStack />
         <About />
