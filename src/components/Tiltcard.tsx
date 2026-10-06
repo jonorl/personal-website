@@ -8,9 +8,14 @@ interface TiltCardProps {
   tech: string[];
   href: string;
   githubHref: string;
+  /** A screenshot shown beside the text; 960 × 600. */
+  image?: string;
+  imageAlt?: string;
+  /** Spans both grid columns, which also keeps an odd number of cards from leaving a gap. */
+  featured?: boolean;
 }
 
-export default function TiltCard({ title, description, tech, href, githubHref }: TiltCardProps) {
+export default function TiltCard({ title, description, tech, href, githubHref, image, imageAlt, featured }: TiltCardProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [transform, setTransform] = useState("rotateX(0deg) rotateY(0deg)");
 
@@ -29,7 +34,7 @@ export default function TiltCard({ title, description, tech, href, githubHref }:
       href={href}
       target="_blank"
       rel="noreferrer"
-      className="group block"
+      className={`group block ${featured ? "md:col-span-2" : ""}`}
     >
       <div
         ref={ref}
@@ -39,25 +44,37 @@ export default function TiltCard({ title, description, tech, href, githubHref }:
         className="relative min-h-40 rounded-2xl border border-white/10 bg-white/5 p-5 transition-transform will-change-transform"
       >
         <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br from-white/10 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
-        <div style={{ transform: 'translateZ(30px)' }} className="relative">
-          <h4 className="text-lg font-semibold flex items-center gap-2">
-            {title}
-            <ExternalLink className="h-4 w-4 opacity-60 group-hover:opacity-100" />
-            <FaGithub
-              className="h-4 w-4 opacity-60 group-hover:opacity-100 cursor-pointer hover:opacity-80"
-              onClick={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                window.open(githubHref, '_blank', 'noreferrer');
-              }}
-            />
-          </h4>
-          <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">{description}</p>
-          <div className="mt-4 flex flex-wrap gap-2 text-xs">
-            {tech.map((t) => (
-              <span key={t} className="rounded-xl border border-white/10 bg-white/5 px-2 py-1">{t}</span>
-            ))}
+        <div style={{ transform: 'translateZ(30px)' }} className={image ? "relative grid gap-5 md:grid-cols-2 md:items-center" : "relative"}>
+          <div>
+            <h4 className="text-lg font-semibold flex items-center gap-2">
+              {title}
+              <ExternalLink className="h-4 w-4 opacity-60 group-hover:opacity-100" />
+              <FaGithub
+                className="h-4 w-4 opacity-60 group-hover:opacity-100 cursor-pointer hover:opacity-80"
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  window.open(githubHref, '_blank', 'noreferrer');
+                }}
+              />
+            </h4>
+            <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">{description}</p>
+            <div className="mt-4 flex flex-wrap gap-2 text-xs">
+              {tech.map((t) => (
+                <span key={t} className="rounded-xl border border-white/10 bg-white/5 px-2 py-1">{t}</span>
+              ))}
+            </div>
           </div>
+          {image && (
+            <img
+              src={image}
+              alt={imageAlt ?? ""}
+              width={960}
+              height={600}
+              loading="lazy"
+              className="w-full h-auto rounded-xl border border-white/10"
+            />
+          )}
         </div>
       </div>
     </a>

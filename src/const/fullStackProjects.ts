@@ -1,4 +1,14 @@
  export const fullStackProjects = [
+    {
+      title: "Air Quality Monitor (IoT)",
+      description: "Home-built sensor measuring the air in my Kampala office. Rust firmware on an ESP32-S3 reads a laser particle counter and posts minute averages over HTTPS to a Fastify/Prisma API on the VPS; a React + three.js dashboard draws them live in five 3D views.",
+      tech: ["Rust", "ESP32", "TypeScript", "Fastify", "Prisma", "PostgreSQL", "React", "three.js", "Docker", "Cloudflare"],
+      href: "https://jonathan-orlowski.dev/pollution/",
+      githubHref: "https://github.com/jonorl/pollution",
+      image: "/projects/pollution.webp",
+      imageAlt: "The live dashboard: the latest PM2.5 reading beside a 3D ring of the last 24 hours of minute readings.",
+      featured: true,
+    },
       {
       title: "Teatro Dislocador",
       description: "Live/prod monorepo theater project featuring public and admin CMS frontends, backed by a Postgres/Prisma API on a containerized VPS with Caddy proxying.",

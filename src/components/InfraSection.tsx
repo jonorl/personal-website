@@ -17,7 +17,7 @@ export default function InfraSection() {
           Infrastructure &amp; DevOps
         </h3>
         <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
-          All 8 projects self-hosted on a single VPS - pre-built GHCR images,
+          All 9 projects self-hosted on a single VPS - pre-built GHCR images,
           GitOps-managed infrastructure, and a full observability stack.
         </p>
         <div className="mt-3 flex flex-wrap gap-2">
