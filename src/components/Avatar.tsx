@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 export default function Avatar() {
 
   const MotionDiv = motion.div;
-  const AVATAR = "https://res.cloudinary.com/dqqdfeuo1/image/upload/v1755504750/P_20240508_152743_kjd1p0.jpg"
 
   return (
 
@@ -18,8 +17,10 @@ export default function Avatar() {
         <div className="relative">
           <div className="mx-auto m-0 h-auto w-28 rounded-full bg-gradient-to-tr from-zinc-500 to-sky-500 p-1">
             <img
-              src={AVATAR}
+              src="/avatar.webp"
               alt="Jonathan Orlowski"
+              width={224}
+              height={298}
               className="h-full w-full rounded-full object-cover"
             />
           </div>
