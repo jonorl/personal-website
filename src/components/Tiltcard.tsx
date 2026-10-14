@@ -48,7 +48,7 @@ export default function TiltCard({ title, description, tech, href, githubHref, i
         <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br from-white/10 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
         <div style={{ transform: 'translateZ(30px)' }} className={image || video ? "relative grid gap-5 md:grid-cols-2 md:items-center" : "relative"}>
           <div>
-            <h4 className="text-lg font-semibold flex items-center gap-2">
+            <h3 className="text-lg font-semibold flex items-center gap-2">
               {title}
               <ExternalLink className="h-4 w-4 opacity-60 group-hover:opacity-100" />
               <FaGithub
@@ -59,7 +59,7 @@ export default function TiltCard({ title, description, tech, href, githubHref, i
                   window.open(githubHref, '_blank', 'noreferrer');
                 }}
               />
-            </h4>
+            </h3>
             <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">{description}</p>
             <div className="mt-4 flex flex-wrap gap-2 text-xs">
               {tech.map((t) => (

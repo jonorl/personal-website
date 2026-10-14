@@ -12,10 +12,10 @@ export default function InfraSection() {
       <div className="mx-auto max-w-6xl px-4 py-20">
 
         {/* Header */}
-        <h3 className="text-2xl font-semibold flex items-center ">
+        <h2 className="text-2xl font-semibold flex items-center ">
           <div />
           Infrastructure &amp; DevOps
-        </h3>
+        </h2>
         <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
           All 9 projects self-hosted on a single VPS - pre-built GHCR images,
           GitOps-managed infrastructure, and a full observability stack.

@@ -8,9 +8,9 @@ export default function AiMl() {
       <div className="mx-auto max-w-6xl px-4 py-10">
         <div className="flex items-end justify-between gap-4">
           <div>
-            <h3 className="text-2xl font-semibold flex items-center gap-2">
+            <h2 className="text-2xl font-semibold flex items-center gap-2">
               AI/ML Projects
-            </h3>
+            </h2>
             <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
               Machine learning models deployed to production with full demo websites
             </p>

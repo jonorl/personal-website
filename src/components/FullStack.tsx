@@ -8,7 +8,7 @@ export default function FullStack() {
       <div className="mx-auto max-w-6xl px-4 py-20">
         <div className="flex items-end justify-between gap-4">
           <div>
-            <h3 className="text-2xl font-semibold">Full-Stack Projects</h3>
+            <h2 className="text-2xl font-semibold">Full-Stack Projects</h2>
             <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
               Web applications built with React, Node.js, and PostgreSQL
             </p>

@@ -23,7 +23,7 @@ export default function Avatar() {
               className="h-full w-full rounded-full object-cover"
             />
           </div>
-          <h4 className="mt-4 text-center text-lg font-semibold">Jonathan Orlowski</h4>
+          <p className="mt-4 text-center text-lg font-semibold">Jonathan Orlowski</p>
           <p className="mt-1 text-center text-sm text-slate-500">MLOps-Oriented Software Engineer</p>
           <ul className="mt-4 grid grid-cols-2 gap-2 text-xs">
             {[
