@@ -11,11 +11,13 @@ interface TiltCardProps {
   /** A screenshot shown beside the text; 960 × 600. */
   image?: string;
   imageAlt?: string;
+  /** A muted looping clip shown in place of the image, which becomes its poster; 960 × 600. */
+  video?: string;
   /** Spans both grid columns, which also keeps an odd number of cards from leaving a gap. */
   featured?: boolean;
 }
 
-export default function TiltCard({ title, description, tech, href, githubHref, image, imageAlt, featured }: TiltCardProps) {
+export default function TiltCard({ title, description, tech, href, githubHref, image, imageAlt, video, featured }: TiltCardProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [transform, setTransform] = useState("rotateX(0deg) rotateY(0deg)");
 
@@ -44,7 +46,7 @@ export default function TiltCard({ title, description, tech, href, githubHref, i
         className="relative min-h-40 rounded-2xl border border-white/10 bg-white/5 p-5 transition-transform will-change-transform"
       >
         <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br from-white/10 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
-        <div style={{ transform: 'translateZ(30px)' }} className={image ? "relative grid gap-5 md:grid-cols-2 md:items-center" : "relative"}>
+        <div style={{ transform: 'translateZ(30px)' }} className={image || video ? "relative grid gap-5 md:grid-cols-2 md:items-center" : "relative"}>
           <div>
             <h4 className="text-lg font-semibold flex items-center gap-2">
               {title}
@@ -65,7 +67,20 @@ export default function TiltCard({ title, description, tech, href, githubHref, i
               ))}
             </div>
           </div>
-          {image && (
+          {video ? (
+            <video
+              src={video}
+              poster={image}
+              aria-label={imageAlt}
+              width={960}
+              height={600}
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="w-full h-auto rounded-xl border border-white/10"
+            />
+          ) : image && (
             <img
               src={image}
               alt={imageAlt ?? ""}
