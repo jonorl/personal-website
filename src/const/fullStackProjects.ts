@@ -22,8 +22,8 @@
     },
       {
       title: "Teatro Dislocador",
-      description: "Live/prod monorepo theater project featuring public and admin CMS frontends, backed by a Postgres/Prisma API on a containerized VPS with Caddy proxying.",
-      tech: ["React", "TypeScript", "Vite", "Tailwind", "Clerk", "Prisma", "PostgreSQL", "Docker", "Caddy"],
+      description: "Live site for an independent theatre in Argentina: a public site and an admin CMS on an Express/Prisma/Postgres API, containerised behind Caddy on its own VPS. The owner only posts on Instagram, so an n8n workflow has Gemini read each new post and publishes the shows and classes it finds, then retires them a month after the date.",
+      tech: ["React", "TypeScript", "Tailwind", "Clerk", "Express", "Prisma", "PostgreSQL", "n8n", "Gemini", "Docker", "Caddy"],
       href: "https://teatrodislocador.ar",
       githubHref: "https://github.com/jonorl/teatro-dislocador",
       image: "/projects/teatro.webp",
