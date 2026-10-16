@@ -15,9 +15,9 @@ export default function AiMl() {
               Machine learning models deployed to production with full demo websites
             </p>
           </div>
-          <a href="https://github.com/jonorl" target="_blank" rel="noreferrer" className="text-sm inline-flex items-center gap-1 hover:text-zinc-500">
+          <a href="https://github.com/jonorl" target="_blank" rel="noreferrer" aria-label="View all projects on GitHub" className="text-sm inline-flex items-center gap-1 hover:text-zinc-500">
             <span className="hidden sm:inline">View all</span>
-            <ExternalLink className="h-4 w-4" />
+            <ExternalLink className="h-4 w-4" aria-hidden="true" />
           </a>
         </div>
 
