@@ -4,8 +4,20 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
-    # One PR a week for the routine bumps; majors still come separately as they can break the build.
+    open-pull-requests-limit: 5
     groups:
+      # Vite and its plugins move together, including major versions,
+      # so a Vite upgrade arrives with the plugin updates it needs.
+      vite:
+        patterns:
+          - "vite"
+          - "@vitejs/*"
+          - "@tailwindcss/vite"
+      # One PR a week for routine bumps; other majors still come separately.
       minor-and-patch:
         update-types: ["minor", "patch"]
-    open-pull-requests-limit: 5
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
