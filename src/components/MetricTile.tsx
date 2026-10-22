@@ -25,7 +25,6 @@ interface MetricTileProps {
 export const METRICS_URL = process.env.NODE_ENV === "production" 
     ? "https://stats.jonathan-orlowski.dev/api/metrics"
     : "http://localhost:3002/api/metrics"
-    console.log(METRICS_URL)
 // ─────────────────────────────────────────────────────────────────────────────
  
 export function useServerMetrics(): UseServerMetricsResult {

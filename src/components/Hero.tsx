@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { Mail, Brain } from "lucide-react";
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import Avatar from "./Avatar";

@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { useServerMetrics } from "./MetricTile";
 import MetricTile from "./MetricTile";
 import { infraStacks, POLL_INTERVAL_MS } from "../const/infraStacks";
