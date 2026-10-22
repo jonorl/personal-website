@@ -28,7 +28,9 @@ The live metrics come from `http://localhost:3002/api/metrics` in development, s
 
 Other scripts:
 
+- `npm run typecheck` checks the TypeScript.
 - `npm run lint` runs ESLint.
+- `npm test` runs the Jest tests in `src/__tests__/`.
 - `npm run build` builds the site into `dist/`.
 - `npm run preview` serves that build.
 
@@ -44,7 +46,7 @@ Other scripts:
 
 ## Maintenance
 
-- **CI** (`.github/workflows/ci.yml`) runs `npm ci`, lint and build on every push and pull request. The `main` branch ruleset requires it to pass before a pull request can merge.
+- **CI** (`.github/workflows/ci.yml`) runs `npm ci`, the type check, lint, the tests and build on every push and pull request. The `main` branch ruleset requires it to pass before a pull request can merge.
 - **Dependabot** (`.github/dependabot.yml`) checks npm packages and GitHub Actions weekly:
   - minor and patch updates arrive as one pull request
   - Vite and its plugins are upgraded together

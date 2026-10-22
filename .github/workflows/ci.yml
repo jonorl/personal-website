@@ -19,5 +19,7 @@ jobs:
           cache: npm
       # npm ci fails on peer conflicts, so a Dependabot bump that would break the deploy's install fails here first.
       - run: npm ci
+      - run: npm run typecheck
       - run: npm run lint
+      - run: npm test
       - run: npm run build

@@ -15,8 +15,8 @@ export const infraStacks = [
     label: "Applications",
     Icon: Box,
     description:
-      "All 9 portfolio projects running as isolated containers, routed through Caddy.",
-    services: ["4 AI Gradio containers", "4 full stack projects", "1 IoT sensor API", "Images hosted on GHCR"],
+      "All 10 portfolio projects running as isolated containers, routed through Caddy.",
+    services: ["4 AI Gradio containers", "5 full stack projects", "1 IoT sensor API", "Images hosted on GHCR"],
   },
   {
     filename: "docker-compose.monitoring.yml",
