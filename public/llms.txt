@@ -2,7 +2,7 @@
 
 > MLOps-oriented software engineer with 10+ years in business intelligence. Builds and deploys ML, full-stack and IoT projects, all self-hosted on one VPS with Docker, Caddy, Postgres and Prometheus/Grafana monitoring.
 
-Born in Argentina, based between London and Kampala. Email is the best way to get in touch: jonorl@gmail.com.
+Born in Argentina, based between London and Kampala. Email is the best way to get in touch: hello@jonathan-orlowski.dev.
 
 ## Original projects
 

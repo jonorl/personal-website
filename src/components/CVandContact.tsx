@@ -20,8 +20,8 @@ export default function CVandContact() {
             <h2 className="text-xl font-semibold">Contact</h2>
             <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">Email is best. I read everything.</p>
             <div className="mt-4">
-              <a href="mailto:jonorl@gmail.com" className="inline-flex items-center gap-2 rounded-2xl bg-white/10 px-4 py-2 hover:bg-white/20">
-                <Mail className="h-4 w-4" /> jonorl@gmail.com
+              <a href="mailto:hello@jonathan-orlowski.dev" className="inline-flex items-center gap-2 rounded-2xl bg-white/10 px-4 py-2 hover:bg-white/20">
+                <Mail className="h-4 w-4" /> hello@jonathan-orlowski.dev
               </a>
             </div>
           </div>
