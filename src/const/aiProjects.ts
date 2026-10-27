@@ -23,7 +23,7 @@ export const aiProjects = [
     {
       title: "Image Classification",
       description: "Binary image classification for pizza based on convnext_tiny architecture.",
-      tech: ["FastAI", "convnext_tiny", "Pytorch", "Hugging Faces", "Gradio"],
+      tech: ["FastAI", "convnext_tiny", "Pytorch", "Gradio"],
       href: "https://jonathan-orlowski.dev/fugazzeta/",
       githubHref: "https://github.com/jonorl/fugazzeta",
     },
