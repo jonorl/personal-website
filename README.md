@@ -1,5 +1,16 @@
 # Personal Website – Jonathan Orlowski
 
+[![CI](https://github.com/jonorl/personal-website/actions/workflows/ci.yml/badge.svg)](https://github.com/jonorl/personal-website/actions/workflows/ci.yml)
+[![Deploy metrics API](https://github.com/jonorl/personal-website/actions/workflows/deploy-server.yml/badge.svg)](https://github.com/jonorl/personal-website/actions/workflows/deploy-server.yml)
+[![Website](https://img.shields.io/website?url=https%3A%2F%2Fjonathan-orlowski.dev&label=site)](https://jonathan-orlowski.dev)
+[![Metrics API](https://img.shields.io/website?url=https%3A%2F%2Fstats.jonathan-orlowski.dev%2Fhealth&label=metrics%20API)](https://stats.jonathan-orlowski.dev/health)
+
+![React](https://img.shields.io/github/package-json/dependency-version/jonorl/personal-website/react?logo=react&label=React)
+![TypeScript](https://img.shields.io/github/package-json/dependency-version/jonorl/personal-website/dev/typescript?logo=typescript&label=TypeScript)
+![Vite](https://img.shields.io/github/package-json/dependency-version/jonorl/personal-website/dev/vite?logo=vite&label=Vite)
+![Tailwind CSS](https://img.shields.io/github/package-json/dependency-version/jonorl/personal-website/tailwindcss?logo=tailwindcss&label=Tailwind)
+![Cloudflare Pages](https://img.shields.io/badge/hosted%20on-Cloudflare%20Pages-F38020?logo=cloudflarepages&logoColor=white)
+
 My portfolio site, live at **https://jonathan-orlowski.dev**. It started as a static page for [The Odin Project](https://www.theodinproject.com/) and now covers my AI/ML, IoT, networking and production work, along with the two VPSes they run on.
 
 <p align="center">
