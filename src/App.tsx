@@ -18,8 +18,9 @@ export default function App() {
 
   return (
     <MotionConfig reducedMotion="user">
-      <div className="relative min-h-screen bg-white text-slate-800 dark:bg-[#0b0f17] dark:text-slate-100 selection:bg-zinc-200 selection:text-zinc-950">
+      <div className="relative min-h-screen overflow-x-clip bg-white text-slate-800 dark:bg-[#0b0f17] dark:text-slate-100 selection:bg-zinc-200 selection:text-zinc-950">
 
+        {/* Wider than a phone screen; the wrapper's overflow-x-clip stops it widening the page. */}
         <div className="pointer-events-none absolute -top-24 h-[40rem] w-[40rem] rounded-full bg-gradient-to-tr from-zinc-500/20 via-sky-500/10 to-teal-500/20 blur-3xl" />
 
         <Header menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
