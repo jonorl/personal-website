@@ -43,7 +43,7 @@
     "jest-environment-jsdom": "^30.5.2",
     "tw-animate-css": "^1.3.7",
     "typescript": "^6.0.3",
-    "typescript-eslint": "^8.72.0",
+    "typescript-eslint": "^8.72.1",
     "vite": "^8.3.5"
   }
 }
