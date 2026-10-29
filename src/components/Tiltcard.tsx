@@ -4,7 +4,7 @@ import { FaGithub } from 'react-icons/fa';
 import StatusLight from "./StatusLight";
 import type { Project } from "../const/types";
 
-export default function TiltCard({ title, description, tech, href, githubHref, mobileHref, image, imageAlt, video, featured, serviceId }: Project) {
+export default function TiltCard({ title, description, tech, href, githubHref, credit, mobileHref, image, imageAlt, video, featured, serviceId }: Project) {
   const ref = useRef<HTMLDivElement>(null);
   const [transform, setTransform] = useState("rotateX(0deg) rotateY(0deg)");
 
@@ -38,14 +38,16 @@ export default function TiltCard({ title, description, tech, href, githubHref, m
             <h3 className="text-lg font-semibold flex items-center gap-2">
               {title}
               <ExternalLink className="h-4 w-4 opacity-60 group-hover:opacity-100" />
-              <FaGithub
-                className="h-4 w-4 opacity-60 group-hover:opacity-100 cursor-pointer hover:opacity-80"
-                onClick={(e) => {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  window.open(githubHref, '_blank', 'noreferrer');
-                }}
-              />
+              {githubHref && (
+                <FaGithub
+                  className="h-4 w-4 opacity-60 group-hover:opacity-100 cursor-pointer hover:opacity-80"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    window.open(githubHref, '_blank', 'noreferrer');
+                  }}
+                />
+              )}
               {mobileHref && (
                 <Smartphone
                   aria-label="Mobile app source on GitHub"
@@ -59,6 +61,7 @@ export default function TiltCard({ title, description, tech, href, githubHref, m
               )}
               {serviceId && <StatusLight serviceId={serviceId} />}
             </h3>
+            {credit && <p className="mt-1 text-xs text-slate-500">{credit}</p>}
             <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">{description}</p>
             <div className="mt-4 flex flex-wrap gap-2 text-xs">
               {tech.map((t) => (

@@ -55,6 +55,7 @@ describe("status lights", () => {
     })) as jest.Mock;
     await renderApp();
     expect(await screen.findByText("1 of 2 project back ends passing their health checks")).toBeInTheDocument();
+    expect(screen.getByText("1 of 2 back ends healthy right now")).toBeInTheDocument();
     expect(screen.getAllByText("Live")).toHaveLength(1);
     expect(screen.getAllByText("Down")).toHaveLength(1);
     // Voice Clone, Fugazzeta, Teatro and Carmen have no result yet.
@@ -65,5 +66,6 @@ describe("status lights", () => {
     await renderApp();
     expect(screen.queryByText("Live")).not.toBeInTheDocument();
     expect(screen.queryByText("Down")).not.toBeInTheDocument();
+    expect(screen.queryByText(/back ends healthy right now/)).not.toBeInTheDocument();
   });
 });

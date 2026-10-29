@@ -4,9 +4,9 @@ My portfolio site, live at **https://jonathan-orlowski.dev**. It started as a st
 
 ## What's on it
 
-- **Hero and About**: who I am, and the move from business intelligence to MLOps.
+- **Hero and About**: who I am, the move from business intelligence to software engineering, and a live count of healthy back ends.
 - **Infrastructure & DevOps**: a diagram of Cloudflare and the two VPSes, how a change is deployed, what raises an alert and how backups work, with live CPU, memory, disk and uptime figures from the VPS. They're polled every 10 seconds from `stats.jonathan-orlowski.dev`, the small Express API in [`server/`](server/).
-- **AI/ML Projects**, **Real-World Problems**, **Client Work** and **Just for Fun**: cards linking to each live demo and its source, each playing the clip from its README. Cards with a back end show a Live/Down light from its `/health`, which `stats.jonathan-orlowski.dev/api/status` checks every 30 seconds on the page's behalf.
+- **AI/ML Projects**, **Real-World Problems**, **In Production** and **Just for Fun**: cards linking to each live demo and its source, each playing the clip from its README. Cards with a back end show a Live/Down light from its `/health`, which `stats.jonathan-orlowski.dev/api/status` checks every 30 seconds on the page's behalf.
 - **CV and Contact**: a downloadable PDF and email.
 
 ## Tech stack
@@ -36,8 +36,10 @@ Other scripts:
 
 ## Editing the content
 
-- Projects live in `src/const/`: `aiProjects.ts`, `realWorldProjects.ts`, `clientProjects.ts` and `funProjects.ts`, typed by `Project` in `types.ts`. A card takes a title, description, tech tags and links. It can also take:
+- Projects live in `src/const/`: `aiProjects.ts`, `realWorldProjects.ts`, `productionProjects.ts` and `funProjects.ts`, typed by `Project` in `types.ts`. A card takes a title, description, tech tags and links. It can also take:
   - `mobileHref`: a second repository for the project's mobile app
+  - `credit`: who the work was for, shown under the title
+  - `githubHref` can be left out when the source is private
   - `image`: a 960 × 600 screenshot in `public/projects/`
   - `video`: a muted looping clip, which uses the image as its poster
   - `featured: true`: the card spans both columns

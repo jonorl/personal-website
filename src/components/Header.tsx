@@ -44,7 +44,7 @@ export default function Header({ dark, menuOpen, setDark, setMenuOpen }: HeaderP
             <a href="#infra" className="hover:text-zinc-500">Infra & DevOps</a>
             <a href="#ai-projects" className="hover:text-zinc-500">AI/ML Projects</a>
             <a href="#real-world" className="hover:text-zinc-500">Real-World</a>
-            <a href="#client-work" className="hover:text-zinc-500">Client Work</a>
+            <a href="#in-production" className="hover:text-zinc-500">In Production</a>
             <a href="#about" className="hover:text-zinc-500">About</a>
             <a href="#contact" className="hover:text-zinc-500">Contact</a>
             <a href="#CV" className="hover:text-zinc-500">CV</a>
@@ -75,7 +75,7 @@ export default function Header({ dark, menuOpen, setDark, setMenuOpen }: HeaderP
             <a href="#infra" className="hover:text-zinc-400">Infra & DevOps</a>
             <a href="#ai-projects" className="hover:text-zinc-400">AI/ML Projects</a>
             <a href="#real-world" className="hover:text-zinc-400">Real-World</a>
-            <a href="#client-work" className="hover:text-zinc-400">Client Work</a>
+            <a href="#in-production" className="hover:text-zinc-400">In Production</a>
             <a href="#about" className="hover:text-zinc-400">About</a>
             <a href="#contact" className="hover:text-zinc-400">Contact</a>
             <a href="#CV" className="hover:text-zinc-400">CV</a>

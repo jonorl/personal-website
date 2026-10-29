@@ -1,6 +1,6 @@
 # Jonathan Orlowski
 
-> MLOps-oriented software engineer with 10+ years in business intelligence. Builds and deploys ML, full-stack and IoT projects, self-hosted on two VPSes with Docker, Caddy, Postgres and Prometheus/Grafana monitoring.
+> Software engineer with 10+ years in business intelligence, now a Digital Architecture Specialist at GOPA Pro. Builds and runs ML, full-stack and IoT projects end to end, self-hosted on two VPSes with Docker, Caddy, Postgres and Prometheus/Grafana monitoring.
 
 Born in Argentina, based between London and Kampala. Email is the best way to get in touch: hello@jonathan-orlowski.dev.
 
@@ -15,8 +15,9 @@ Born in Argentina, based between London and Kampala. Email is the best way to ge
 - [Air Quality Monitor (IoT)](https://jonathan-orlowski.dev/pollution/): Rust firmware on an ESP32-S3 posts particle readings to a Fastify/Prisma API; a three.js dashboard draws them live on the web and Android. Source: https://github.com/jonorl/pollution
 - [NordVPN on a webOS TV](https://github.com/jonorl/NordVPN-WebOS): split tunnelling for one device over WireGuard on an Asuswrt-Merlin router, with a kill switch, a failover watchdog and a TV app to pick or rotate servers.
 
-## Client work
+## In production
 
+- [EU Youth Alumni Platform](https://youthalumni.eu): at GOPA Pro, for the European Commission. The platform of The Circle of EU Youth Alumni, a growing worldwide network, in four languages. I lead its architecture: built the repository, CI/CD, staging with anonymised data, migrations, a React app inside WordPress, a daily Mailchimp sync, event check-in and certificates, and two-step sign-in. The source is private.
 - [Teatro Dislocador](https://teatrodislocador.ar): live site for an independent theatre in Comodoro Rivadavia, Argentina, with a public site, an admin CMS and a Postgres/Prisma API; n8n and Gemini turn its Instagram posts into listings. Source: https://github.com/jonorl/teatro-dislocador
 
 ## Just for fun

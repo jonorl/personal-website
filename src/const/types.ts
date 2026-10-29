@@ -6,7 +6,10 @@ export interface Project {
   description: string;
   tech: string[];
   href: string;
-  githubHref: string;
+  /** Left out for work whose source isn't public. */
+  githubHref?: string;
+  /** Who the work was for, shown under the title; for projects that weren't my own. */
+  credit?: string;
   /** A second repository holding the project's mobile app. */
   mobileHref?: string;
   /** A screenshot shown beside the text; 960 × 600. */

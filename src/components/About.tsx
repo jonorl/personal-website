@@ -1,24 +1,29 @@
 export default function About() {
   return (
     <section id="about" className="relative z-10 border-t border-white/10">
-      <div className="mx-auto max-w-6xl px-4 py-10">
+      <div className="mx-auto max-w-6xl px-4 py-20">
         <h2 className="text-2xl font-semibold">About</h2>
-        <p className="mt-4 text-slate-600 dark:text-slate-300">
-          I'm Jon, and I've spent the last few years making a deliberate transition from business intelligence management
-          to software engineering, with a recent focus on ML operations and deployment. Born in Argentina, now splitting
-          time between London and Kampala due to family commitments, which has given me plenty of practice working across
-          time zones and cultures.
-        </p>
-        <p className="mt-4 text-slate-600 dark:text-slate-300">
-          What sets me apart? I approach ML deployment with a BI mindset. I naturally think about data pipelines, model
-          monitoring, performance metrics, and how systems behave in production (not just in notebooks). I have first-hand
-          experience in digitalisation projects, roadmapping and understanding the business value of technical implementations.
-        </p>
-        <p className="mt-4 text-slate-600 dark:text-slate-300">
-          Currently building ML projects that demonstrate end-to-end deployment-from model training to production serving
-          with monitoring. Always interested in connecting with ML engineers, MLOps practitioners, or companies
-          looking for someone who can bridge technical ML work and production operations.
-        </p>
+        <div className="mt-4 space-y-4 text-slate-600 dark:text-slate-300">
+          <p>
+            I'm Jon. I spent over ten years in business intelligence at St John Ambulance in London, ending up as
+            Commercial Analytics &amp; Information Manager: leading a team of six analysts, moving the organisation
+            from QlikView to Power BI and from Access to SQL Server. Before that I was a financial analyst at Accenture
+            in Buenos Aires.
+          </p>
+          <p>
+            Now I'm a Digital Architecture Specialist at GOPA Pro, leading the back-office architecture of an EU Youth
+            Alumni platform for the European Commission, from the data model and the ETL to the CI/CD pipeline.
+          </p>
+          <p>
+            BI made me start from the problem rather than the technology. The theatre's owner only posts on Instagram,
+            so its website reads Instagram. The air in my office felt bad, so I built a sensor to measure it. And I care
+            about what happens after launch: monitoring, backups, and whether the people using it are better off.
+          </p>
+          <p>
+            Born in Argentina, I now split my time between London and Kampala, so I'm used to working across time zones.
+            If you're hiring for a role where building the system and running it both matter, I'd like to hear from you.
+          </p>
+        </div>
       </div>
     </section>
   )

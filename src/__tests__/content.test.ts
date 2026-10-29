@@ -2,14 +2,14 @@ import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { aiProjects } from "../const/aiProjects";
 import { realWorldProjects } from "../const/realWorldProjects";
-import { clientProjects } from "../const/clientProjects";
+import { productionProjects } from "../const/productionProjects";
 import { funProjects } from "../const/funProjects";
 import type { Project } from "../const/types";
 
 const root = process.cwd();
 const publicFile = (p: string) => join(root, "public", p);
 
-const projects: Project[] = [...aiProjects, ...realWorldProjects, ...clientProjects, ...funProjects];
+const projects: Project[] = [...aiProjects, ...realWorldProjects, ...productionProjects, ...funProjects];
 
 describe("project data", () => {
   test.each(projects.map((p) => [p.title, p]))("%s has every required field", (_title, p) => {
@@ -17,7 +17,7 @@ describe("project data", () => {
     expect(p.description.trim()).not.toBe("");
     expect(p.tech.length).toBeGreaterThan(0);
     expect(p.href).toMatch(/^https:\/\//);
-    expect(p.githubHref).toMatch(/^https:\/\/github\.com\/jonorl\//);
+    if (p.githubHref) expect(p.githubHref).toMatch(/^https:\/\/github\.com\/jonorl\//);
     if (p.mobileHref) expect(p.mobileHref).toMatch(/^https:\/\/github\.com\/jonorl\//);
   });
 

@@ -9,7 +9,7 @@ import Footer from "./components/Footer";
 import ServiceStatusProvider from "./components/ServiceStatusProvider";
 import { aiProjects } from "./const/aiProjects";
 import { realWorldProjects } from "./const/realWorldProjects";
-import { clientProjects } from "./const/clientProjects";
+import { productionProjects } from "./const/productionProjects";
 import { funProjects } from "./const/funProjects";
 
 export default function App() {
@@ -41,10 +41,10 @@ export default function App() {
               projects={realWorldProjects}
             />
             <ProjectSection
-              id="client-work"
-              title="Client Work"
-              subtitle="A live website for a real business: a public site, the CMS its staff use, and automation that keeps it current"
-              projects={clientProjects}
+              id="in-production"
+              title="In Production"
+              subtitle="Live platforms that organisations and their members rely on"
+              projects={productionProjects}
             />
             <ProjectSection
               id="fun"
