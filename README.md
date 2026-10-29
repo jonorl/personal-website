@@ -1,12 +1,18 @@
 # Personal Website – Jonathan Orlowski
 
-My portfolio site, live at **https://jonathan-orlowski.dev**. It started as a static page for [The Odin Project](https://www.theodinproject.com/) and now covers my AI/ML, IoT, networking and client projects, along with the two VPSes they run on.
+My portfolio site, live at **https://jonathan-orlowski.dev**. It started as a static page for [The Odin Project](https://www.theodinproject.com/) and now covers my AI/ML, IoT, networking and production work, along with the two VPSes they run on.
+
+<p align="center">
+  <a href="https://jonathan-orlowski.dev">
+    <img src="docs/preview.gif" alt="A scroll down the site: the hero with its live health count, the infrastructure diagram, deploy steps, alerts and backups, then the AI/ML, Real-World, In Production and Just for Fun projects, and About." width="600" />
+  </a>
+</p>
 
 ## What's on it
 
 - **Hero and About**: who I am, the move from business intelligence to software engineering, and a live count of healthy back ends.
 - **Infrastructure & DevOps**: a diagram of Cloudflare and the two VPSes, how a change is deployed, what raises an alert and how backups work, with live CPU, memory, disk and uptime figures from the VPS. They're polled every 10 seconds from `stats.jonathan-orlowski.dev`, the small Express API in [`server/`](server/).
-- **AI/ML Projects**, **Real-World Problems**, **In Production** and **Just for Fun**: cards linking to each live demo and its source, each playing the clip from its README. Cards with a back end show a Live/Down light from its `/health`, which `stats.jonathan-orlowski.dev/api/status` checks every 30 seconds on the page's behalf.
+- **In Production**, **Real-World Problems**, **AI/ML Projects** and **Just for Fun**: cards linking to each live demo and its source, each playing the clip from its README. Cards with a back end show a Live/Down light from its `/health`, which `stats.jonathan-orlowski.dev/api/status` checks every 30 seconds on the page's behalf.
 - **CV and Contact**: a downloadable PDF and email.
 
 ## Tech stack

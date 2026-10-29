@@ -28,10 +28,10 @@ export default function App() {
             <Hero />
             <InfraSection />
             <ProjectSection
-              id="ai-projects"
-              title="AI/ML Projects"
-              subtitle="Machine learning models deployed to production with full demo websites"
-              projects={aiProjects}
+              id="in-production"
+              title="In Production"
+              subtitle="Live platforms that organisations and their members rely on"
+              projects={productionProjects}
               viewAll
             />
             <ProjectSection
@@ -41,10 +41,10 @@ export default function App() {
               projects={realWorldProjects}
             />
             <ProjectSection
-              id="in-production"
-              title="In Production"
-              subtitle="Live platforms that organisations and their members rely on"
-              projects={productionProjects}
+              id="ai-projects"
+              title="AI/ML Projects"
+              subtitle="Machine learning models deployed to production with full demo websites"
+              projects={aiProjects}
             />
             <ProjectSection
               id="fun"

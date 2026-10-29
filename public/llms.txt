@@ -4,21 +4,21 @@
 
 Born in Argentina, based between London and Kampala. Email is the best way to get in touch: hello@jonathan-orlowski.dev.
 
-## AI/ML projects
+## In production
 
-- [Agentic News-to-Image](https://jonathan-orlowski.dev/agentic-ai-news-to-image/): an n8n agent picks the day's most important headline, avoiding its last ten picks, and has Flux.1 Schnell render it; Gemini Flash with GPT-OSS 120B on Groq as fallback. Web page and Android app. Source: https://github.com/jonorl/agentic-ai-news-to-image
-- [Voice Clone](https://jonathan-orlowski.dev/voice-clone/): Argentinean Spanish in a cloned voice, from Coqui XTTS v2 fine-tuned on a local GPU, with a web demo and an Android app. Source: https://github.com/jonorl/voice-clone and https://github.com/jonorl/voice-clone-mobile
-- [Fugazzeta Detector](https://jonathan-orlowski.dev/fugazzeta/): pizza classifier, a convnext_tiny fine-tuned with fastai and served by Gradio/FastAPI. Source: https://github.com/jonorl/fugazzeta
+- [EU Youth Alumni Platform](https://youthalumni.eu): at GOPA Pro, for the European Commission. The platform of The Circle of EU Youth Alumni, a growing worldwide network, in four languages. I lead its architecture: built the repository, CI/CD, staging with anonymised data, migrations, a React app inside WordPress, a daily Mailchimp sync, event check-in and certificates, and two-step sign-in. The source is private.
+- [Teatro Dislocador](https://teatrodislocador.ar): live site for an independent theatre in Comodoro Rivadavia, Argentina, with a public site, an admin CMS and a Postgres/Prisma API; n8n and Gemini turn its Instagram posts into listings. Source: https://github.com/jonorl/teatro-dislocador
 
 ## Real-world problems
 
 - [Air Quality Monitor (IoT)](https://jonathan-orlowski.dev/pollution/): Rust firmware on an ESP32-S3 posts particle readings to a Fastify/Prisma API; a three.js dashboard draws them live on the web and Android. Source: https://github.com/jonorl/pollution
 - [NordVPN on a webOS TV](https://github.com/jonorl/NordVPN-WebOS): split tunnelling for one device over WireGuard on an Asuswrt-Merlin router, with a kill switch, a failover watchdog and a TV app to pick or rotate servers.
 
-## In production
+## AI/ML projects
 
-- [EU Youth Alumni Platform](https://youthalumni.eu): at GOPA Pro, for the European Commission. The platform of The Circle of EU Youth Alumni, a growing worldwide network, in four languages. I lead its architecture: built the repository, CI/CD, staging with anonymised data, migrations, a React app inside WordPress, a daily Mailchimp sync, event check-in and certificates, and two-step sign-in. The source is private.
-- [Teatro Dislocador](https://teatrodislocador.ar): live site for an independent theatre in Comodoro Rivadavia, Argentina, with a public site, an admin CMS and a Postgres/Prisma API; n8n and Gemini turn its Instagram posts into listings. Source: https://github.com/jonorl/teatro-dislocador
+- [Agentic News-to-Image](https://jonathan-orlowski.dev/agentic-ai-news-to-image/): an n8n agent picks the day's most important headline, avoiding its last ten picks, and has Flux.1 Schnell render it; Gemini Flash with GPT-OSS 120B on Groq as fallback. Web page and Android app. Source: https://github.com/jonorl/agentic-ai-news-to-image
+- [Voice Clone](https://jonathan-orlowski.dev/voice-clone/): Argentinean Spanish in a cloned voice, from Coqui XTTS v2 fine-tuned on a local GPU, with a web demo and an Android app. Source: https://github.com/jonorl/voice-clone and https://github.com/jonorl/voice-clone-mobile
+- [Fugazzeta Detector](https://jonathan-orlowski.dev/fugazzeta/): pizza classifier, a convnext_tiny fine-tuned with fastai and served by Gradio/FastAPI. Source: https://github.com/jonorl/fugazzeta
 
 ## Just for fun
 

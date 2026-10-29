@@ -42,7 +42,7 @@ export default function Hero() {
             </p>
             <LiveHealth />
             <div className="mt-6 flex flex-wrap items-center gap-3">
-              <a href="#ai-projects" className="inline-flex items-center gap-2 rounded-2xl bg-zinc-600 px-4 py-2 text-white shadow hover:shadow-lg hover:-translate-y-0.5 transition">
+              <a href="#in-production" className="inline-flex items-center gap-2 rounded-2xl bg-zinc-600 px-4 py-2 text-white shadow hover:shadow-lg hover:-translate-y-0.5 transition">
                 <LayoutGrid className="h-4 w-4" /> Projects
               </a>
               <a href="#contact" className="inline-flex items-center gap-2 rounded-2xl border border-white/20 px-4 py-2 hover:bg-white/10">
