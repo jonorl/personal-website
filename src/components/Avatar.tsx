@@ -22,7 +22,7 @@ export default function Avatar() {
       transition={{ duration: 0.6, delay: 0.1 }}
       className="relative"
     >
-      <div className="group relative mx-auto max-w-sm overflow-hidden border border-white/10 bg-white/5 p-6 shadow-2xl backdrop-blur">
+      <div className="group relative mx-auto max-w-sm overflow-hidden border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-white/5 p-6 shadow-2xl backdrop-blur">
         <div className="mx-auto m-0 h-auto w-28 rounded-full bg-gradient-to-tr from-zinc-500 to-sky-500 p-1">
           <img
             src="/avatar.webp"
@@ -36,7 +36,7 @@ export default function Avatar() {
         <p className="mt-1 text-center text-sm text-slate-500">Software Engineer · London &amp; Kampala</p>
         <ul className="mt-4 grid grid-cols-2 gap-2 text-xs">
           {skills.map((tag) => (
-            <li key={tag} className="rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-center">
+            <li key={tag} className="rounded-xl border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-white/5 px-3 py-2 text-center">
               {tag}
             </li>
           ))}

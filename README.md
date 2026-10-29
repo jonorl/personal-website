@@ -19,6 +19,7 @@ My portfolio site, live at **https://jonathan-orlowski.dev**. It started as a st
 
 - React 19, TypeScript, Vite and Tailwind CSS 4
 - Motion for the animations; lucide-react and react-icons for icons
+- Pre-rendered at build time (`scripts/prerender.js`), so the HTML carries the page's content before the JavaScript loads
 - Hosted on Cloudflare Pages, which deploys every push to `main`
 
 ## Running it locally
@@ -37,7 +38,7 @@ Other scripts:
 - `npm run typecheck` checks the TypeScript.
 - `npm run lint` runs ESLint.
 - `npm test` runs the Jest tests in `src/__tests__/`.
-- `npm run build` builds the site into `dist/`.
+- `npm run build` builds the site into `dist/`, then renders the page into `dist/index.html`.
 - `npm run preview` serves that build.
 
 ## Editing the content

@@ -1,66 +1,52 @@
-import { useEffect, Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction } from "react";
 import { MonitorCheck } from "lucide-react";
+import { useTheme } from "../hooks/useTheme";
 
 interface HeaderProps {
-  dark: boolean;
   menuOpen: boolean;
-  setDark: Dispatch<SetStateAction<boolean>>;
   setMenuOpen: Dispatch<SetStateAction<boolean>>;
 }
 
-export default function Header({ dark, menuOpen, setDark, setMenuOpen }: HeaderProps) {
+const links = [
+  { href: "#infra", label: "Infra & DevOps" },
+  { href: "#in-production", label: "In Production" },
+  { href: "#real-world", label: "Real-World" },
+  { href: "#ai-projects", label: "AI/ML Projects" },
+  { href: "#fun", label: "Just for Fun" },
+  { href: "#about", label: "About" },
+  { href: "#contact", label: "Contact" },
+  { href: "#CV", label: "CV" },
+];
 
-  useEffect(() => {
-    const handler = (e: MouseEvent) => {
-      const target = e.target as HTMLElement;
-      const anchor = target.closest('a[href^="#"]');
-      if (!anchor) return;
-      
-      e.preventDefault();
-      
-      const href = anchor.getAttribute('href');
-      if (!href) return;
-      
-      const id = href.slice(1);
-      const el = document.getElementById(id);
-      
-      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      setMenuOpen(false);
-    };
-
-    document.addEventListener('click', handler);
-    return () => document.removeEventListener('click', handler);
-  }, [setMenuOpen]); // Added setMenuOpen to dependency array for best practice
+// In-page links are plain anchors so the URL and back button follow them; index.css handles the smooth scroll.
+export default function Header({ menuOpen, setMenuOpen }: HeaderProps) {
+  const { dark, toggle } = useTheme();
 
   return (
-    <header className="sticky top-0 z-[9999] backdrop-blur supports-[backdrop-filter]:bg-white/40 dark:supports-[backdrop-filter]:bg-black/20 border-b border-white/10">
+    <header className="sticky top-0 z-[9999] backdrop-blur supports-[backdrop-filter]:bg-white/40 dark:supports-[backdrop-filter]:bg-black/20 border-b border-slate-200 dark:border-white/10">
       <div className="mx-auto max-w-6xl px-4">
         <div className="flex h-16 items-center justify-between">
           <a href="#home" className="group inline-flex items-center gap-2 font-semibold">
             <MonitorCheck className="h-5 w-5 transition-transform group-hover:rotate-12" />
             <span>Jonathan Orlowski</span>
           </a>
-          <nav className="hidden md:flex items-center gap-6 text-sm">
-            <a href="#infra" className="hover:text-zinc-500">Infra & DevOps</a>
-            <a href="#in-production" className="hover:text-zinc-500">In Production</a>
-            <a href="#real-world" className="hover:text-zinc-500">Real-World</a>
-            <a href="#ai-projects" className="hover:text-zinc-500">AI/ML Projects</a>
-            <a href="#about" className="hover:text-zinc-500">About</a>
-            <a href="#contact" className="hover:text-zinc-500">Contact</a>
-            <a href="#CV" className="hover:text-zinc-500">CV</a>
+          <nav className="hidden lg:flex items-center gap-5 text-sm">
+            {links.map(({ href, label }) => (
+              <a key={href} href={href} className="hover:text-zinc-500">{label}</a>
+            ))}
           </nav>
           <div className="flex items-center gap-2">
             <button
-              onClick={() => setDark((d) => !d)}
-              className="rounded-2xl border border-white/20 px-3 py-1 text-xs hover:bg-white/10"
-              aria-label="Toggle theme"
+              onClick={toggle}
+              className="rounded-2xl border border-slate-300 dark:border-white/20 px-3 py-1 text-xs hover:bg-slate-100 dark:hover:bg-white/10"
             >
-              {dark ? "Dark" : "Light"}
+              {dark ? "Light mode" : "Dark mode"}
             </button>
             <button
               onClick={() => setMenuOpen((m) => !m)}
-              className="md:hidden rounded-2xl border border-white/20 px-3 py-1 text-xs hover:bg-white/10"
-              aria-label="Toggle menu"
+              className="lg:hidden rounded-2xl border border-slate-300 dark:border-white/20 px-3 py-1 text-xs hover:bg-slate-100 dark:hover:bg-white/10"
+              aria-expanded={menuOpen}
+              aria-controls="mobile-menu"
             >
               Menu
             </button>
@@ -70,15 +56,11 @@ export default function Header({ dark, menuOpen, setDark, setMenuOpen }: HeaderP
       
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden border-t border-white/10">
+        <div id="mobile-menu" className="lg:hidden border-t border-slate-200 dark:border-white/10">
           <div className="mx-auto max-w-6xl px-4 py-3 flex flex-col gap-3 text-sm">
-            <a href="#infra" className="hover:text-zinc-400">Infra & DevOps</a>
-            <a href="#in-production" className="hover:text-zinc-400">In Production</a>
-            <a href="#real-world" className="hover:text-zinc-400">Real-World</a>
-            <a href="#ai-projects" className="hover:text-zinc-400">AI/ML Projects</a>
-            <a href="#about" className="hover:text-zinc-400">About</a>
-            <a href="#contact" className="hover:text-zinc-400">Contact</a>
-            <a href="#CV" className="hover:text-zinc-400">CV</a>
+            {links.map(({ href, label }) => (
+              <a key={href} href={href} onClick={() => setMenuOpen(false)} className="hover:text-zinc-400">{label}</a>
+            ))}
           </div>
         </div>
       )}

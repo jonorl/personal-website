@@ -13,7 +13,7 @@ function LiveHealth() {
 
   return (
     <a href="#infra" className="mt-4 inline-flex items-center gap-2 text-sm text-slate-500 hover:text-zinc-400">
-      <span aria-hidden="true" className={`h-2 w-2 rounded-full ${healthy === checks.length ? "bg-teal-400 animate-pulse" : "bg-amber-400"}`} />
+      <span aria-hidden="true" className={`h-2 w-2 rounded-full ${healthy === checks.length ? "bg-teal-400 motion-safe:animate-pulse" : "bg-amber-400"}`} />
       {healthy} of {checks.length} back ends healthy right now
     </a>
   );
@@ -45,13 +45,13 @@ export default function Hero() {
               <a href="#in-production" className="inline-flex items-center gap-2 rounded-2xl bg-zinc-600 px-4 py-2 text-white shadow hover:shadow-lg hover:-translate-y-0.5 transition">
                 <LayoutGrid className="h-4 w-4" /> Projects
               </a>
-              <a href="#contact" className="inline-flex items-center gap-2 rounded-2xl border border-white/20 px-4 py-2 hover:bg-white/10">
+              <a href="#contact" className="inline-flex items-center gap-2 rounded-2xl border border-slate-300 dark:border-white/20 px-4 py-2 hover:bg-slate-100 dark:hover:bg-white/10">
                 <Mail className="h-4 w-4" /> Contact
               </a>
-              <a href="https://github.com/jonorl" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-2xl border border-white/20 px-4 py-2 hover:bg-white/10">
+              <a href="https://github.com/jonorl" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-2xl border border-slate-300 dark:border-white/20 px-4 py-2 hover:bg-slate-100 dark:hover:bg-white/10">
                 <FaGithub className="h-4 w-4" /> GitHub
               </a>
-              <a href="https://www.linkedin.com/in/jonathan-orlowski-58910b21/" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-2xl border border-white/20 px-4 py-2 hover:bg-white/10">
+              <a href="https://www.linkedin.com/in/jonathan-orlowski-58910b21/" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-2xl border border-slate-300 dark:border-white/20 px-4 py-2 hover:bg-slate-100 dark:hover:bg-white/10">
                 <FaLinkedin className="h-4 w-4" /> LinkedIn
               </a>
             </div>

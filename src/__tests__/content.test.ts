@@ -61,6 +61,19 @@ describe("files for crawlers and agents", () => {
     expect(robots).not.toMatch(/<html/i);
   });
 
+  test("sitemap.xml lists the home page and robots.txt points at it", () => {
+    const sitemap = readFileSync(publicFile("sitemap.xml"), "utf8");
+    expect(sitemap).toContain("<loc>https://jonathan-orlowski.dev/</loc>");
+    expect(readFileSync(publicFile("robots.txt"), "utf8")).toMatch(/^Sitemap: https:\/\/jonathan-orlowski\.dev\/sitemap\.xml$/m);
+  });
+
+  test("the og:image exists in public/", () => {
+    const html = readFileSync(join(root, "index.html"), "utf8");
+    const image = html.match(/<meta property="og:image" content="https:\/\/jonathan-orlowski\.dev(\/[^"]+)"/)?.[1];
+    expect(image).toBeDefined();
+    expect(existsSync(publicFile(image!))).toBe(true);
+  });
+
   test("index.html has a meta description and canonical URL", () => {
     const html = readFileSync(join(root, "index.html"), "utf8");
     const description = html.match(/<meta name="description" content="([^"]+)"/)?.[1];

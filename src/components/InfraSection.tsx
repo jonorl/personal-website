@@ -5,13 +5,13 @@ import { useServiceStatus } from "../hooks/useServiceStatus";
 import MetricTile from "./MetricTile";
 import { alerts, edge, pipeline, POLL_INTERVAL_MS, practices, servers, type Server } from "../const/infra";
 
-const panel = "rounded-2xl border border-white/10 bg-white/5 p-5";
-const chip = "rounded-lg border border-white/10 bg-white/5 px-2 py-0.5 text-[11px] text-slate-600 dark:text-slate-300";
+const panel = "rounded-2xl border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-white/5 p-5";
+const chip = "rounded-lg border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-white/5 px-2 py-0.5 text-[11px] text-slate-600 dark:text-slate-300";
 
 function PanelTitle({ icon, children }: { icon: ReactNode; children: ReactNode }) {
   return (
     <h3 className="mb-4 flex items-center gap-2 text-sm font-semibold">
-      <span aria-hidden="true" className="rounded-lg border border-white/10 bg-white/5 p-1.5">{icon}</span>
+      <span aria-hidden="true" className="rounded-lg border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-white/5 p-1.5">{icon}</span>
       {children}
     </h3>
   );
@@ -19,9 +19,9 @@ function PanelTitle({ icon, children }: { icon: ReactNode; children: ReactNode }
 
 function ServerBox({ name, host, role, stacks }: Server) {
   return (
-    <div className="rounded-xl border border-white/10 bg-white/5 p-4">
+    <div className="rounded-xl border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-white/5 p-4">
       <div className="flex items-center gap-2">
-        <ServerIcon aria-hidden="true" className="h-4 w-4 text-teal-500" />
+        <ServerIcon aria-hidden="true" className="h-4 w-4 text-teal-600 dark:text-teal-500" />
         <h4 className="text-sm font-semibold">{name} VPS</h4>
       </div>
       <p className="mt-0.5 text-[11px] text-slate-500">{host}</p>
@@ -57,7 +57,7 @@ export default function InfraSection() {
   const healthy = checks.filter((s) => s.up).length;
 
   return (
-    <section id="infra" className="relative z-10 border-t border-white/10">
+    <section id="infra" className="relative z-10 border-t border-slate-200 dark:border-white/10">
       <div className="mx-auto max-w-6xl px-4 py-20">
 
         <h2 className="text-2xl font-semibold">Infrastructure &amp; DevOps</h2>
@@ -67,7 +67,7 @@ export default function InfraSection() {
         </p>
         <div className="mt-3 flex flex-wrap gap-2">
           {practices.map((tag) => (
-            <span key={tag} className="text-xs rounded-xl border border-white/10 bg-white/5 px-3 py-1 text-slate-500 dark:text-slate-400">
+            <span key={tag} className="text-xs rounded-xl border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-white/5 px-3 py-1 text-slate-500 dark:text-slate-400">
               {tag}
             </span>
           ))}
@@ -77,7 +77,7 @@ export default function InfraSection() {
         <div className={`mt-8 ${panel}`}>
           <PanelTitle icon={<Cloud className="h-4 w-4" />}>How it fits together</PanelTitle>
 
-          <div className="rounded-xl border border-white/10 bg-white/5 p-4">
+          <div className="rounded-xl border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-white/5 p-4">
             <div className="flex items-center gap-2">
               <Cloud aria-hidden="true" className="h-4 w-4 text-sky-500" />
               <h4 className="text-sm font-semibold">Cloudflare</h4>
@@ -85,7 +85,7 @@ export default function InfraSection() {
             </div>
             <div className="mt-3 grid gap-2 sm:grid-cols-3">
               {edge.map(({ name, detail }) => (
-                <div key={name} className="rounded-lg border border-white/10 bg-white/5 px-3 py-2">
+                <div key={name} className="rounded-lg border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-white/5 px-3 py-2">
                   <p className="text-xs font-semibold">{name}</p>
                   <p className="text-[11px] text-slate-600 dark:text-slate-400">{detail}</p>
                 </div>
@@ -113,7 +113,7 @@ export default function InfraSection() {
             <ol className="flex flex-col gap-3">
               {pipeline.map(({ step, detail }, i) => (
                 <li key={step} className="flex gap-3">
-                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-teal-500/40 text-[10px] text-teal-500">
+                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-teal-500/40 text-[10px] text-teal-600 dark:text-teal-500">
                     {i + 1}
                   </span>
                   <div>
@@ -174,7 +174,7 @@ export default function InfraSection() {
           <div className="flex items-center gap-2 mb-4">
             <span
               className={`h-2 w-2 rounded-full shrink-0 ${status === "ok"
-                  ? "bg-teal-400 animate-pulse"
+                  ? "bg-teal-400 motion-safe:animate-pulse"
                   : status === "error"
                     ? "bg-red-400"
                     : "bg-zinc-500"

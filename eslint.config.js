@@ -25,8 +25,8 @@ export default defineConfig([
     },
   },
   {
-    // Config files run in Node, not the browser.
-    files: ['*.config.js'],
+    // Config files and build scripts run in Node, not the browser.
+    files: ['*.config.js', 'scripts/**'],
     languageOptions: { globals: globals.node },
   },
   {
