@@ -2,20 +2,28 @@ import express from "express";
 import fs from "fs/promises";
 import os from "os";
 import cors from "cors";
-import "dotenv/config";
+
+// The VPS passes the environment in through Compose; .env is only for local runs.
+try {
+  process.loadEnvFile();
+} catch {
+  // No .env file, which is normal in production.
+}
 
 const app = express();
 
-app.use(cors({
-  origin: process.env.NODE_ENV === "production" 
-    ? process.env.FRONTEND_URL_METRICS 
-    : true
-}));
-app.use(express.json());
+// A fixed list rather than an environment variable: an unset variable used to fall through to cors()'s default of
+// allowing every origin.
+const ALLOWED_ORIGINS = process.env.NODE_ENV === "production"
+  ? ["https://jonathan-orlowski.dev"]
+  : [/^http:\/\/localhost:\d+$/];
+app.use(cors({ origin: ALLOWED_ORIGINS }));
 
-const CPU_SAMPLE_MS = 1000;
+// Sampled on a timer and served from memory, so a request never touches the file system and visitors can't make
+// the server do more work by asking more often. The page polls every 10 seconds.
+const METRICS_INTERVAL_MS = 5_000;
 
-// /proc/stat counts jiffies since boot, so one reading only gives the average since boot.
+// /proc/stat counts jiffies since boot, so CPU use is the difference between two samples.
 async function readCpuTimes() {
   const statData = await fs.readFile("/proc/stat", "utf8");
   const fields = statData.split("\n").find(line => line.startsWith("cpu ")).split(/\s+/).slice(1).map(Number);
@@ -24,53 +32,61 @@ async function readCpuTimes() {
   return { idle: idle + iowait, total: fields.slice(0, 8).reduce((a, b) => a + b, 0) };
 }
 
+async function readMemory() {
+  const memData = await fs.readFile("/proc/meminfo", "utf8");
+  const memInfo = Object.fromEntries(
+    memData.split("\n")
+      .filter(Boolean)
+      .map(l => l.split(":").map(s => s.trim()))
+  );
+  const memTotal = parseInt(memInfo.MemTotal);
+  const memAvail = parseInt(memInfo.MemAvailable);
+  return Math.round(((memTotal - memAvail) / memTotal) * 100);
+}
+
+// statfs rather than df: Alpine's busybox df has no --output, so that always fell back to 0. Used over used +
+// available, as df reports it, since root's reserved blocks aren't available to anyone else.
+async function readDisk() {
+  const { blocks, bfree, bavail } = await fs.statfs("/");
+  const used = blocks - bfree;
+  return Math.round((used / (used + bavail)) * 100);
+}
+
+function formatUptime() {
+  const uptimeSecs = os.uptime();
+  const days = Math.floor(uptimeSecs / 86400);
+  const hours = Math.floor((uptimeSecs % 86400) / 3600);
+  return `${days}d ${hours}h`;
+}
+
+let metrics = null;
+let lastCpu = null;
+
+async function sampleMetrics() {
+  try {
+    const cpuTimes = await readCpuTimes();
+    const totalDelta = lastCpu ? cpuTimes.total - lastCpu.total : 0;
+    const cpu = totalDelta > 0 ? Math.round((1 - (cpuTimes.idle - lastCpu.idle) / totalDelta) * 100) : 0;
+    lastCpu = cpuTimes;
+    metrics = { cpu, memory: await readMemory(), disk: await readDisk(), uptime: formatUptime() };
+  } catch (error) {
+    console.error("Metrics Error:", error);
+    metrics = null;
+  }
+}
+
+// The first sample has nothing to compare CPU against, so a second follows a second later.
+sampleMetrics().then(() => setTimeout(sampleMetrics, 1000));
+setInterval(sampleMetrics, METRICS_INTERVAL_MS);
+
 // version lets the deploy's smoke test tell the new container from the old one.
 app.get("/health", (_req, res) => {
   res.json({ status: "ok", version: process.env.GIT_SHA ?? "dev" });
 });
 
-app.get("/api/metrics", async (_req, res) => {
-  try {
-    // 1. CPU, over the last second
-    const before = await readCpuTimes();
-    await new Promise(resolve => setTimeout(resolve, CPU_SAMPLE_MS));
-    const after = await readCpuTimes();
-    const totalDelta = after.total - before.total;
-    const cpu = totalDelta > 0 ? Math.round((1 - (after.idle - before.idle) / totalDelta) * 100) : 0;
-
-    // 2. Memory
-    const memData = await fs.readFile("/proc/meminfo", "utf8");
-    const memInfo = Object.fromEntries(
-      memData.split("\n")
-        .filter(Boolean)
-        .map(l => l.split(":").map(s => s.trim()))
-    );
-    const memTotal = parseInt(memInfo.MemTotal);
-    const memAvail = parseInt(memInfo.MemAvailable);
-    const memory = Math.round(((memTotal - memAvail) / memTotal) * 100);
-
-    // 3. Disk. statfs rather than df: Alpine's busybox df has no --output, so that always fell back to 0.
-    // Used over used + available, as df reports it, since root's reserved blocks aren't available to anyone else.
-    let disk = 0;
-    try {
-      const { blocks, bfree, bavail } = await fs.statfs("/");
-      const used = blocks - bfree;
-      disk = Math.round((used / (used + bavail)) * 100);
-    } catch (e) {
-      console.error("Disk read failed, defaulting to 0:", e.message);
-    }
-
-    // 4. Uptime
-    const uptimeSecs = os.uptime();
-    const days = Math.floor(uptimeSecs / 86400);
-    const hours = Math.floor((uptimeSecs % 86400) / 3600);
-    const uptime = `${days}d ${hours}h`;
-
-    res.json({ cpu, memory, disk, uptime });
-  } catch (error) {
-    console.error("Metrics Error:", error);
-    res.status(500).json({ error: error.message });
-  }
+app.get("/api/metrics", (_req, res) => {
+  if (!metrics) return res.status(503).json({ error: "Metrics not available yet" });
+  res.json(metrics);
 });
 
 // Checked here rather than from the browser: not every API sends CORS headers, and the page then makes one request
