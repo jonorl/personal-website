@@ -14,7 +14,7 @@ interface ProjectSectionProps {
 export default function ProjectSection({ id, title, subtitle, projects, viewAll }: ProjectSectionProps) {
   return (
     <section id={id} className="relative z-10 border-t border-slate-200 dark:border-white/10">
-      <div className="mx-auto max-w-6xl px-4 py-20">
+      <div className="mx-auto max-w-6xl px-4 py-12">
         <div className="flex items-end justify-between gap-4">
           <div>
             <h2 className="text-2xl font-semibold">{title}</h2>

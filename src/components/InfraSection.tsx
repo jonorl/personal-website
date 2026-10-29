@@ -58,7 +58,7 @@ export default function InfraSection() {
 
   return (
     <section id="infra" className="relative z-10 border-t border-slate-200 dark:border-white/10">
-      <div className="mx-auto max-w-6xl px-4 py-20">
+      <div className="mx-auto max-w-6xl px-4 py-12">
 
         <h2 className="text-2xl font-semibold">Infrastructure &amp; DevOps</h2>
         <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
