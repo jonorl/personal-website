@@ -1,12 +1,12 @@
 # Personal Website – Jonathan Orlowski
 
-My portfolio site, live at **https://jonathan-orlowski.dev**. It started as a static page for [The Odin Project](https://www.theodinproject.com/) and now covers my AI/ML, full-stack and IoT projects, along with the VPS they all run on.
+My portfolio site, live at **https://jonathan-orlowski.dev**. It started as a static page for [The Odin Project](https://www.theodinproject.com/) and now covers my AI/ML, IoT, networking and client projects, along with the two VPSes they run on.
 
 ## What's on it
 
 - **Hero and About**: who I am, and the move from business intelligence to MLOps.
-- **Infrastructure & DevOps**: the three Docker Compose stacks behind the projects, with live CPU, memory, disk and uptime figures from the VPS. They're polled every 10 seconds from `stats.jonathan-orlowski.dev` ([metrics-personal-website](https://github.com/jonorl/metrics-personal-website)).
-- **AI/ML projects** and **Full-Stack projects**: cards linking to each live demo and its source. My three original projects (Where in the World?, the air-quality monitor and Teatro Dislocador) span the full width and play a short clip.
+- **Infrastructure & DevOps**: a diagram of Cloudflare and the two VPSes, how a change is deployed, what raises an alert and how backups work, with live CPU, memory, disk and uptime figures from the VPS. They're polled every 10 seconds from `stats.jonathan-orlowski.dev`, the small Express API in [`server/`](server/).
+- **AI/ML Projects**, **Real-World Problems**, **Client Work** and **Just for Fun**: cards linking to each live demo and its source, each playing the clip from its README. Cards with a back end show a Live/Down light from its `/health`, which `stats.jonathan-orlowski.dev/api/status` checks every 30 seconds on the page's behalf.
 - **CV and Contact**: a downloadable PDF and email.
 
 ## Tech stack
@@ -36,18 +36,30 @@ Other scripts:
 
 ## Editing the content
 
-- Projects live in `src/const/`: `fullStackProjects.ts` and `aiProjects.ts`. A card takes a title, description, tech tags and links. It can also take:
+- Projects live in `src/const/`: `aiProjects.ts`, `realWorldProjects.ts`, `clientProjects.ts` and `funProjects.ts`, typed by `Project` in `types.ts`. A card takes a title, description, tech tags and links. It can also take:
+  - `mobileHref`: a second repository for the project's mobile app
   - `image`: a 960 × 600 screenshot in `public/projects/`
   - `video`: a muted looping clip, which uses the image as its poster
   - `featured: true`: the card spans both columns
-- The infrastructure cards are in `src/const/infraStacks.ts`.
+  - `serviceId`: shows the Live/Down light for that back end; the IDs are the keys the metrics API checks
+- The infrastructure diagram, deploy steps, alerts and practices are in `src/const/infra.ts`.
 - `public/llms.txt` describes the site for AI agents. It's written by hand, so update it when projects change.
 - `public/CV.pdf` is the downloadable CV.
+
+## Metrics API (`server/`)
+
+An Express app on the Contabo VPS, behind Caddy at `stats.jonathan-orlowski.dev`:
+
+- `GET /api/metrics`: CPU (over one second), memory, disk and uptime
+- `GET /api/status`: every project's `/health`, checked by the server every 30 seconds, for the Live/Down lights
+- `GET /health`: `{ status, version }`, where `version` is the commit it was built from
+
+Run it with `cd server && npm install && node index.js`; copy `.env.example` to `.env` first. Pushes that touch `server/` run `.github/workflows/deploy-server.yml`, which builds `ghcr.io/jonorl/metrics`, recreates the container over SSH and waits for `/health` to report the new commit. It needs the `GHCR_TOKEN`, `VPS_HOST`, `VPS_USER` and `VPS_SSH_KEY` repository secrets.
 
 ## Maintenance
 
 - **CI** (`.github/workflows/ci.yml`) runs `npm ci`, the type check, lint, the tests and build on every push and pull request. The `main` branch ruleset requires it to pass before a pull request can merge.
-- **Dependabot** (`.github/dependabot.yml`) checks npm packages and GitHub Actions weekly:
+- **Dependabot** (`.github/dependabot.yml`) checks npm packages (the site and `server/`), the server's base image and GitHub Actions weekly:
   - minor and patch updates arrive as one pull request
   - Vite and its plugins are upgraded together
   - other major upgrades come one by one

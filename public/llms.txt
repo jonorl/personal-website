@@ -1,27 +1,27 @@
 # Jonathan Orlowski
 
-> MLOps-oriented software engineer with 10+ years in business intelligence. Builds and deploys ML, full-stack and IoT projects, all self-hosted on one VPS with Docker, Caddy, Postgres and Prometheus/Grafana monitoring.
+> MLOps-oriented software engineer with 10+ years in business intelligence. Builds and deploys ML, full-stack and IoT projects, self-hosted on two VPSes with Docker, Caddy, Postgres and Prometheus/Grafana monitoring.
 
 Born in Argentina, based between London and Kampala. Email is the best way to get in touch: hello@jonathan-orlowski.dev.
 
-## Original projects
-
-- [Where in the World? (Carmen Sandiego remake)](https://jonathan-orlowski.dev/carmen): the 1990 detective game remade in Rust and compiled to WebAssembly, with family and friends as the thieves, in English or Spanish. Source: https://github.com/jonorl/carmen
-- [Air Quality Monitor (IoT)](https://jonathan-orlowski.dev/pollution/): Rust firmware on an ESP32-S3 posts particle readings to a Fastify/Prisma API; a React + three.js dashboard draws them live. Source: https://github.com/jonorl/pollution
-- [Teatro Dislocador](https://teatrodislocador.ar): live site for an independent theatre in Comodoro Rivadavia, Argentina, with a public site, an admin CMS and a Postgres/Prisma API. Source: https://github.com/jonorl/teatro-dislocador
-
 ## AI/ML projects
 
-- [Agentic AI Workflow](https://jonathan-orlowski.dev/agentic-ai-news-to-image/): picks a news headline, checks it against recent memory and generates an image for it with n8n, Gemini, Llama and Flux.
-- [Voice Clone](https://jonathan-orlowski.dev/voice-clone/): Argentine Spanish voice clone, fine-tuned from XTTS v2 on local hardware.
-- [Mini-LLM Text Generator](https://jonathan-orlowski.dev/simpsons-gpt/): GPT-2 mini trained on Simpsons scripts.
-- [Image Classification](https://jonathan-orlowski.dev/fugazzeta/): pizza classifier built on convnext_tiny with fastai.
+- [Agentic News-to-Image](https://jonathan-orlowski.dev/agentic-ai-news-to-image/): an n8n agent picks the day's most important headline, avoiding its last ten picks, and has Flux.1 Schnell render it; Gemini Flash with GPT-OSS 120B on Groq as fallback. Web page and Android app. Source: https://github.com/jonorl/agentic-ai-news-to-image
+- [Voice Clone](https://jonathan-orlowski.dev/voice-clone/): Argentinean Spanish in a cloned voice, from Coqui XTTS v2 fine-tuned on a local GPU, with a web demo and an Android app. Source: https://github.com/jonorl/voice-clone and https://github.com/jonorl/voice-clone-mobile
+- [Fugazzeta Detector](https://jonathan-orlowski.dev/fugazzeta/): pizza classifier, a convnext_tiny fine-tuned with fastai and served by Gradio/FastAPI. Source: https://github.com/jonorl/fugazzeta
 
-## Other full-stack projects
+## Real-world problems
 
-- [OdinBook](https://jonathan-orlowski.dev/odin-book/): social media site with guest, Google and GitHub logins.
-- [Messaging App](https://jonathan-orlowski.dev/messaging-app/): real-time messaging with JWT auth and image attachments.
-- [Where's Bluey](https://jonathan-orlowski.dev/game/): Where's Wally-style children's game with a server-side timer and leaderboard.
+- [Air Quality Monitor (IoT)](https://jonathan-orlowski.dev/pollution/): Rust firmware on an ESP32-S3 posts particle readings to a Fastify/Prisma API; a three.js dashboard draws them live on the web and Android. Source: https://github.com/jonorl/pollution
+- [NordVPN on a webOS TV](https://github.com/jonorl/NordVPN-WebOS): split tunnelling for one device over WireGuard on an Asuswrt-Merlin router, with a kill switch, a failover watchdog and a TV app to pick or rotate servers.
+
+## Client work
+
+- [Teatro Dislocador](https://teatrodislocador.ar): live site for an independent theatre in Comodoro Rivadavia, Argentina, with a public site, an admin CMS and a Postgres/Prisma API; n8n and Gemini turn its Instagram posts into listings. Source: https://github.com/jonorl/teatro-dislocador
+
+## Just for fun
+
+- [Where in the World?](https://jonathan-orlowski.dev/carmen): the 1990 detective game remade in Rust and compiled to WebAssembly, with family and friends as the thieves, in English or Spanish. Source: https://github.com/jonorl/carmen
 
 ## Optional
 

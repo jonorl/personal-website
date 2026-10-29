@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Server secrets live only on the VPS.
+.env
+.env.*
+!.env.example

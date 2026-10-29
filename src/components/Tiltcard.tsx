@@ -1,23 +1,10 @@
 import { useRef, useState, MouseEvent } from "react";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, Smartphone } from "lucide-react";
 import { FaGithub } from 'react-icons/fa';
+import StatusLight from "./StatusLight";
+import type { Project } from "../const/types";
 
-interface TiltCardProps {
-  title: string;
-  description: string;
-  tech: string[];
-  href: string;
-  githubHref: string;
-  /** A screenshot shown beside the text; 960 × 600. */
-  image?: string;
-  imageAlt?: string;
-  /** A muted looping clip shown in place of the image, which becomes its poster; 960 × 600. */
-  video?: string;
-  /** Spans both grid columns, which also keeps an odd number of cards from leaving a gap. */
-  featured?: boolean;
-}
-
-export default function TiltCard({ title, description, tech, href, githubHref, image, imageAlt, video, featured }: TiltCardProps) {
+export default function TiltCard({ title, description, tech, href, githubHref, mobileHref, image, imageAlt, video, featured, serviceId }: Project) {
   const ref = useRef<HTMLDivElement>(null);
   const [transform, setTransform] = useState("rotateX(0deg) rotateY(0deg)");
 
@@ -59,6 +46,18 @@ export default function TiltCard({ title, description, tech, href, githubHref, i
                   window.open(githubHref, '_blank', 'noreferrer');
                 }}
               />
+              {mobileHref && (
+                <Smartphone
+                  aria-label="Mobile app source on GitHub"
+                  className="h-4 w-4 opacity-60 group-hover:opacity-100 cursor-pointer hover:opacity-80"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    window.open(mobileHref, '_blank', 'noreferrer');
+                  }}
+                />
+              )}
+              {serviceId && <StatusLight serviceId={serviceId} />}
             </h3>
             <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">{description}</p>
             <div className="mt-4 flex flex-wrap gap-2 text-xs">

@@ -41,3 +41,29 @@ describe("page structure", () => {
     }
   });
 });
+
+describe("status lights", () => {
+  const status = {
+    checkedAt: "2026-10-29T12:00:00Z",
+    services: { "agentic-ai": { up: true, ms: 120 }, pollution: { up: false, ms: null } },
+  };
+
+  test("show Live, Down or Checking from /api/status", async () => {
+    global.fetch = jest.fn().mockImplementation(async (url: string) => ({
+      ok: true,
+      json: async () => (url.endsWith("/api/status") ? status : { cpu: 12, memory: 40, uptime: "3d 4h", disk: 55 }),
+    })) as jest.Mock;
+    await renderApp();
+    expect(await screen.findByText("1 of 2 project back ends passing their health checks")).toBeInTheDocument();
+    expect(screen.getAllByText("Live")).toHaveLength(1);
+    expect(screen.getAllByText("Down")).toHaveLength(1);
+    // Voice Clone, Fugazzeta, Teatro and Carmen have no result yet.
+    expect(screen.getAllByText("Checking")).toHaveLength(4);
+  });
+
+  test("stay grey when the metrics API has no /api/status", async () => {
+    await renderApp();
+    expect(screen.queryByText("Live")).not.toBeInTheDocument();
+    expect(screen.queryByText("Down")).not.toBeInTheDocument();
+  });
+});

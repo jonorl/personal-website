@@ -6,7 +6,7 @@ import tseslint from 'typescript-eslint'
 import { defineConfig } from 'eslint/config'
 
 export default defineConfig([
-  { ignores: ['dist'] },
+  { ignores: ['dist', 'server/node_modules'] },
   {
     files: ['**/*.{js,jsx,ts,tsx}'],
     extends: [js.configs.recommended, tseslint.configs.recommended],
@@ -27,6 +27,11 @@ export default defineConfig([
   {
     // Config files run in Node, not the browser.
     files: ['*.config.js'],
+    languageOptions: { globals: globals.node },
+  },
+  {
+    // The metrics API, which runs in Node on the VPS.
+    files: ['server/**'],
     languageOptions: { globals: globals.node },
   },
   {

@@ -2,11 +2,15 @@ import { useState } from "react";
 import Header from './components/Header'
 import Hero from "./components/Hero";
 import InfraSection from './components/InfraSection'
-import AiMl from "./components/AiMl";
-import FullStack from "./components/FullStack";
+import ProjectSection from "./components/ProjectSection";
 import About from "./components/About";
 import CVandContact from "./components/CVandContact";
 import Footer from "./components/Footer";
+import ServiceStatusProvider from "./components/ServiceStatusProvider";
+import { aiProjects } from "./const/aiProjects";
+import { realWorldProjects } from "./const/realWorldProjects";
+import { clientProjects } from "./const/clientProjects";
+import { funProjects } from "./const/funProjects";
 
 export default function App() {
   const [dark, setDark] = useState(true);
@@ -19,16 +23,41 @@ export default function App() {
         <div className="pointer-events-none absolute -top-24 h-[40rem] w-[40rem] rounded-full bg-gradient-to-tr from-zinc-500/20 via-sky-500/10 to-teal-500/20 blur-3xl" />
 
         <Header dark={dark} menuOpen={menuOpen} setDark={setDark} setMenuOpen={setMenuOpen} />
-        <main>
-          <Hero />
-          <InfraSection />
-          <AiMl />
-          <FullStack />
-          <About />
-          <CVandContact />
-        </main>
+        <ServiceStatusProvider>
+          <main>
+            <Hero />
+            <InfraSection />
+            <ProjectSection
+              id="ai-projects"
+              title="AI/ML Projects"
+              subtitle="Machine learning models deployed to production with full demo websites"
+              projects={aiProjects}
+              viewAll
+            />
+            <ProjectSection
+              id="real-world"
+              title="Real-World Problems"
+              subtitle="Problems from my own life, solved end to end: hardware, firmware, networking and the software on top"
+              projects={realWorldProjects}
+            />
+            <ProjectSection
+              id="client-work"
+              title="Client Work"
+              subtitle="A live website for a real business: a public site, the CMS its staff use, and automation that keeps it current"
+              projects={clientProjects}
+            />
+            <ProjectSection
+              id="fun"
+              title="Just for Fun"
+              subtitle="Built for my family and friends to play"
+              projects={funProjects}
+            />
+            <About />
+            <CVandContact />
+          </main>
+        </ServiceStatusProvider>
         <Footer />
-       
+
       </div>
     </div>
   );

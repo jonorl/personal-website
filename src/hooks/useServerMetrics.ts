@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { POLL_INTERVAL_MS } from "../const/infraStacks";
+import { POLL_INTERVAL_MS } from "../const/infra";
 
 export type ServerStatus = "loading" | "error" | "ok";
 
@@ -16,9 +16,10 @@ interface UseServerMetricsResult {
 }
 
 // ─── config ──────────────────────────────────────────────────────────────────
-export const METRICS_URL = process.env.NODE_ENV === "production" 
-    ? "https://stats.jonathan-orlowski.dev/api/metrics"
-    : "http://localhost:3002/api/metrics"
+export const STATS_ORIGIN = process.env.NODE_ENV === "production"
+    ? "https://stats.jonathan-orlowski.dev"
+    : "http://localhost:3002"
+export const METRICS_URL = `${STATS_ORIGIN}/api/metrics`
 // ─────────────────────────────────────────────────────────────────────────────
  
 export function useServerMetrics(): UseServerMetricsResult {
