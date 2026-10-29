@@ -4,6 +4,7 @@
 [![Deploy metrics API](https://github.com/jonorl/personal-website/actions/workflows/deploy-server.yml/badge.svg)](https://github.com/jonorl/personal-website/actions/workflows/deploy-server.yml)
 [![Website](https://img.shields.io/website?url=https%3A%2F%2Fjonathan-orlowski.dev&label=site)](https://jonathan-orlowski.dev)
 [![Metrics API](https://img.shields.io/website?url=https%3A%2F%2Fstats.jonathan-orlowski.dev%2Fhealth&label=metrics%20API)](https://stats.jonathan-orlowski.dev/health)
+[![Licence: MIT](https://img.shields.io/badge/licence-MIT-blue)](LICENSE)
 
 ![React](https://img.shields.io/github/package-json/dependency-version/jonorl/personal-website/react?logo=react&label=React)
 ![TypeScript](https://img.shields.io/github/package-json/dependency-version/jonorl/personal-website/dev/typescript?logo=typescript&label=TypeScript)
@@ -83,3 +84,7 @@ Run it with `cd server && npm install && node index.js`; copy `.env.example` to 
   - minor and patch updates arrive as one pull request
   - Vite and its plugins are upgraded together
   - other major upgrades come one by one
+
+## Licence
+
+The code is [MIT](LICENSE). The CV, photos, project screenshots and clips, and the written copy about me are not covered by it and remain all rights reserved.
