@@ -22,7 +22,7 @@ Born in Argentina, based between London and Kampala. Email is the best way to ge
 
 ## Just for fun
 
-- [Where in the World?](https://jonathan-orlowski.dev/carmen): the 1990 detective game remade in Rust and compiled to WebAssembly, with family and friends as the thieves, in English or Spanish, with a standalone touch-screen version for the ESP32-S3. Source: https://github.com/jonorl/carmen (ESP32: https://github.com/jonorl/carmen-esp32)
+- [Where in the World?](https://jonathan-orlowski.dev/carmen-sandiego/): the 1990 detective game remade in Rust and compiled to WebAssembly, with satirised celebrities and fictional rogues as the thieves, in English or Spanish, with a standalone touch-screen version for the ESP32-S3. Source: https://github.com/jonorl/carmen-sandiego (ESP32: https://github.com/jonorl/carmen-sandiego/tree/main/esp32)
 
 ## Optional
 
