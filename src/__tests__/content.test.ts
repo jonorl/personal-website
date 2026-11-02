@@ -19,6 +19,7 @@ describe("project data", () => {
     expect(p.href).toMatch(/^https:\/\//);
     if (p.githubHref) expect(p.githubHref).toMatch(/^https:\/\/github\.com\/jonorl\//);
     if (p.mobileHref) expect(p.mobileHref).toMatch(/^https:\/\/github\.com\/jonorl\//);
+    if (p.hardwareHref) expect(p.hardwareHref).toMatch(/^https:\/\/github\.com\/jonorl\//);
   });
 
   test("titles are unique, since they are the React keys", () => {

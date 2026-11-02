@@ -12,6 +12,8 @@ export interface Project {
   credit?: string;
   /** A second repository holding the project's mobile app. */
   mobileHref?: string;
+  /** A second repository holding a version of the project for a microcontroller. */
+  hardwareHref?: string;
   /** A screenshot shown beside the text; 960 × 600. */
   image?: string;
   imageAlt?: string;

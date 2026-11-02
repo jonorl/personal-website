@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, MouseEvent } from "react";
-import { ExternalLink, Smartphone } from "lucide-react";
+import { Cpu, ExternalLink, Smartphone } from "lucide-react";
 import { FaGithub } from 'react-icons/fa';
 import StatusLight from "./StatusLight";
 import type { Project } from "../const/types";
@@ -8,7 +8,7 @@ const reducedMotion = () => window.matchMedia("(prefers-reduced-motion: reduce)"
 // Sits above the title link's overlay so these stay separately clickable.
 const iconLink = "relative z-10 opacity-60 hover:opacity-100 focus-visible:opacity-100";
 
-export default function TiltCard({ title, description, tech, href, githubHref, credit, mobileHref, image, imageAlt, video, featured, serviceId }: Project) {
+export default function TiltCard({ title, description, tech, href, githubHref, credit, mobileHref, hardwareHref, image, imageAlt, video, featured, serviceId }: Project) {
   const ref = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [transform, setTransform] = useState("rotateX(0deg) rotateY(0deg)");
@@ -64,6 +64,11 @@ export default function TiltCard({ title, description, tech, href, githubHref, c
               {mobileHref && (
                 <a href={mobileHref} target="_blank" rel="noreferrer" aria-label={`${title} mobile app source on GitHub`} className={iconLink}>
                   <Smartphone aria-hidden="true" className="h-4 w-4" />
+                </a>
+              )}
+              {hardwareHref && (
+                <a href={hardwareHref} target="_blank" rel="noreferrer" aria-label={`${title} hardware version source on GitHub`} className={iconLink}>
+                  <Cpu aria-hidden="true" className="h-4 w-4" />
                 </a>
               )}
               {serviceId && <span className="relative z-10"><StatusLight serviceId={serviceId} /></span>}
